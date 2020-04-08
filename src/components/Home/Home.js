@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Container from '../../container';
 
-const Text = () => <p>Hello M-Lima</p>;
-const Home = () => <Container items={<Text />} />;
+class Home extends Component {
+  state = {};
+
+  handleClick = () => {
+    alert('clicked');
+  };
+
+  render() {
+    const Text = () => (
+      <p>
+        Hello M-Lima <button onClick={() => this.handleClick()}> Click here</button>
+      </p>
+    );
+    return <Container items={<Text />} />;
+  }
+}
 export default Home;
