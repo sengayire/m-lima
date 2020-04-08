@@ -57,5 +57,14 @@
     "jest-enzyme": "^7.1.2",
     "react-test-render": "^1.1.2",
     "react-test-renderer": "^16.13.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "<rootDir>/**/*.js",
+      "!<rootDir>/src/serviceWorker.js",
+      "!<rootDir>/src/index.js",
+      "!<rootDir>/coverage/**/*.*",
+      "!<rootDir>/build/**/*.*"
+    ]
   }
 }
