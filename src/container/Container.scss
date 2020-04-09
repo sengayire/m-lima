@@ -1,0 +1,12 @@
+.container {
+  height: 700px;
+  width: 100%;
+  .header {
+    height: 10%;
+    background-color: #fdfefe;
+  }
+  .content {
+    min-height: 90%;
+    background-color: #f1c40f;
+  }
+}
