@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Container from '../../container';
+import Contents from '../Contents';
+import { Header, ItemCard } from '../commons';
+import ItemsContainer from '../ItemsContainer';
 
-class Home extends Component {
-  state = {};
+const Home = () => {
+  return (
+    <Container
+      header={<Header />}
+      content={<Contents contents={<ItemsContainer items={<ItemCard />} />} />}
+    />
+  );
+};
 
-  handleClick = () => {
-    alert('clicked');
-  };
-
-  render() {
-    const Text = () => (
-      <p>
-        Hello M-Lima <button onClick={() => this.handleClick()}> Click here</button>
-      </p>
-    );
-    return <Container items={<Text />} />;
-  }
-}
 export default Home;
