@@ -1,0 +1,13 @@
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  .join-btn {
+    margin-left: 10px;
+  }
+  .sign-in {
+    color: gray;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+}

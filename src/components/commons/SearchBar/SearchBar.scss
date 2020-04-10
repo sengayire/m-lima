@@ -1,0 +1,14 @@
+.search-bar-input {
+  width: 500px;
+  input {
+    border-color: transparent !important;
+    border-radius: 10px !important;
+    background: #ecf0f1 !important;
+  }
+  button {
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    border-left: 1px solid #d0d3d4 !important;
+    background: #ecf0f1 !important;
+  }
+}
