@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dropdown, Icon } from 'semantic-ui-react';
+import './DropDown.scss';
 
 const trigger = (
   <span>
@@ -28,14 +29,9 @@ const options = [
   { key: 'sign-out', text: 'Sign Out' },
 ];
 const DropDownBtn = () => (
-  <div>
+  <div className='drop-down-container'>
     {' '}
-    <Dropdown
-      icon={<Icon name='chevron down' />}
-      style={{ backgroundColor: 'white', color: 'gray' }}
-      trigger={trigger}
-      options={options}
-    />
+    <Dropdown icon={<Icon name='chevron down' />} trigger={trigger} options={options} />
   </div>
 );
 

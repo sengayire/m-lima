@@ -3,13 +3,14 @@ import DropDownBtn from '../DropDownBtn';
 import SearchBar from '../SearchBar';
 import Cart from '../Cart';
 import JoinBtn from '../JoinBtn';
+import './NavBar.scss';
 
 const NavBar = () => (
-  <div style={{ display: 'flex', alignItems: 'center' }}>
+  <div className='nav-bar'>
     <div>
       <DropDownBtn />
     </div>
-    <div>
+    <div className='search-bar'>
       <SearchBar />
     </div>
     <div>

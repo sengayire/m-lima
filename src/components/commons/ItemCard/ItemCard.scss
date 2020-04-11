@@ -1,0 +1,38 @@
+.card-group-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 15px !important;
+  width: 95% !important;
+  background-color: #f0f3f4;
+  margin-bottom: -5px !important;
+  .group-label.left {
+    background-color: transparent !important;
+  }
+  .group-label.right.label {
+    background-color: transparent !important;
+    cursor: pointer;
+    z-index: 2;
+    span {
+    }
+  }
+  .card-container {
+    width: 25% !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    margin: 20px -20px 0 15px !important;
+    .rating-label.label {
+      background-color: transparent;
+      bottom: 10px;
+      right: 10px;
+      height: auto;
+    }
+    .price.label {
+      position: absolute;
+      background-color: transparent;
+      bottom: 10px;
+      left: 10px;
+      height: auto;
+    }
+  }
+}

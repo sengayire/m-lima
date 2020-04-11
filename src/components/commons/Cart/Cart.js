@@ -6,11 +6,11 @@ const Cart = () => {
   return (
     <div className='cart-container '>
       <div>
-        <Icon style={{ color: 'white' }} name='cart' />
+        <Icon style={{ color: 'white' }} size='big' name='cart' />
       </div>
       <div className='cart-num'>
         <span>
-          <Label circular color='red'>
+          <Label size='tiny' circular color='red'>
             0
           </Label>
         </span>{' '}

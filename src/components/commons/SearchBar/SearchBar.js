@@ -1,11 +1,14 @@
 import React from 'react';
 import { Icon, Input } from 'semantic-ui-react';
+import './SearchBar.scss';
 
 const SearchBar = () => (
   <div>
     <Input
-      icon={<Icon name='search' inverted circular link />}
+      className='search-bar-input'
+      action={{ icon: <Icon name='search' inverted link size='large' /> }}
       placeholder='Search for item to buy here...'
+      size='sm'
     />
   </div>
 );
