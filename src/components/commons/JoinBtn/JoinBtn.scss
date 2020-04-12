@@ -9,5 +9,16 @@
     color: gray;
     margin-top: 5px;
     cursor: pointer;
+
   }
 }
+.signin-popup-container.left::before {
+  background-color: #ECF0F1 !important;
+  box-shadow: none !important;
+}
+
+.signup-popup-container.left::before {
+  background-color: #ECF0F1 !important;
+  box-shadow: none !important;
+}
+
