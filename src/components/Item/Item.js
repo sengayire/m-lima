@@ -2,14 +2,13 @@ import React from 'react';
 import Container from '../../container';
 import {Header, ItemCard} from '../commons';
 import Contents from '../Contents';
-import ItemsContainer from '../ItemsContainer';
-
+import ItemDetails from '../ItemDetails';
 
 const Item = () => {
 	return(
 		 <Container
           header={<Header />}
-          content={<Contents contents={<div style={{BackgroundColor: 'green',  width:'100%'}}>Hello</div>} />}
+          content={<Contents contents={<ItemDetails details={<div>Hello details mma</div>}/>} />}
         />
 		);
 }
