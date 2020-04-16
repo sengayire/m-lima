@@ -5,5 +5,6 @@ import SearchBar from './SearchBar';
 import Cart from './Cart';
 import JoinBtn from './JoinBtn';
 import ItemCard from './ItemCard';
+import Modal from './Modal';
 
-export { Header, NavBar, DropDownBtn, SearchBar, Cart, JoinBtn, ItemCard };
+export { Header, NavBar, DropDownBtn, SearchBar, Cart, JoinBtn, ItemCard, Modal };

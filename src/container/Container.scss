@@ -1,12 +1,12 @@
 .container {
-  height: 700px;
+  height: 100%;
   width: 100%;
   .header {
     height: 10%;
     background-color: #fdfefe;
   }
   .content {
-    min-height: 90%;
-    background-color: #f1c40f;
+    min-height: 100%;
+    background-color: #F39C12;
   }
 }
