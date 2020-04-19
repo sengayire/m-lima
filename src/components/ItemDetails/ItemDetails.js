@@ -1,10 +1,9 @@
 import React from 'react';
-import './ItemDetails.scss'
+import './ItemDetails.scss';
 import ItemImages from '../ItemImages';
 import ItemDescription from '../ItemDescription';
 
-const ItemDetails = () => {
-return(
+const ItemDetails = () => (
 	   <div className='item-details'>
         <div className='item-details-container'>
          <ItemImages />
@@ -12,7 +11,5 @@ return(
         </div>
 	   </div>
 	   );
-
-}
 
 export default ItemDetails;

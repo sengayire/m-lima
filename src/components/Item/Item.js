@@ -1,16 +1,14 @@
 import React from 'react';
 import Container from '../../container';
-import {Header, ItemCard} from '../commons';
+import { Header } from '../commons';
 import Contents from '../Contents';
 import ItemDetails from '../ItemDetails';
 
-const Item = () => {
-	return(
+const Item = () => (
 		 <Container
           header={<Header />}
-          content={<Contents contents={<ItemDetails details={<div>Hello details mma</div>}/>} />}
+          content={<Contents contents={<ItemDetails />} />}
         />
-		);
-}
+);
 
 export default Item;

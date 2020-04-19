@@ -1,0 +1,17 @@
+.place-order-container{
+    height: 100%;
+    .place-order{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        background-color: #F2F3F4;
+        height: 130px;
+        margin: 0 0 10px 0;
+        border-radius: 4px;
+        .order-description{
+            margin: 0 10px 10px 10px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

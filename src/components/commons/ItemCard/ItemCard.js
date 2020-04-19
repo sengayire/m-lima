@@ -2,8 +2,7 @@ import React from 'react';
 import { Card, Label, Image, Rating, Grid, Icon } from 'semantic-ui-react';
 import './ItemCard.scss';
 
-const ItemCard = () => {
-  return (
+const ItemCard = () => (
     <div>
       <Card.Group stackable itemsPerRow={4} className='card-group-container' widths='2'>
         <Grid>
@@ -153,7 +152,6 @@ const ItemCard = () => {
         </Grid>
       </Card.Group>
     </div>
-  );
-};
+);
 
 export default ItemCard;

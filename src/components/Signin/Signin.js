@@ -1,10 +1,9 @@
 import React from 'react';
 import { Button, Popup, Form, Input } from 'semantic-ui-react';
-import  './Signin.scss'
-const Signin = () =>{
+import './Signin.scss';
 
-	return (
-		<div> 
+const Signin = () => (
+		<div>
     <Form>
      <Form.Field>
       <label>Email</label>
@@ -17,6 +16,5 @@ const Signin = () =>{
     <center><Button type='submit' primary>Login</Button></center>
   </Form>
 		</div>);
-}
 
 export default Signin;
