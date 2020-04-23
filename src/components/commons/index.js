@@ -9,6 +9,7 @@ import Modal from './Modal';
 import PlaceOrder from './PlaceOrder';
 import ItemQuantity from './ItemQuantity';
 import PaymentMsg from './PaymentMsg';
+import DeliveryAddress from './DeliveryAddress';
 
 export {
 
@@ -22,5 +23,6 @@ export {
   Modal,
   PlaceOrder,
   ItemQuantity,
-  PaymentMsg
+  PaymentMsg,
+  DeliveryAddress
 };

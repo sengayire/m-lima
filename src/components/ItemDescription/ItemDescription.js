@@ -7,22 +7,25 @@ import { Modal, PlaceOrder, ItemQuantity, PaymentMsg } from '../commons';
 import AddToCart from '../AddToCart';
 import Delivery from '../Delivery';
 import LOGO  from '../../assets/images/logo.png';
+import ManageModals from '../ManageModels';
 
 const PLACEHOLDER_IMAGE = 'https://react.semantic-ui.com/images/wireframe/image.png';
 
 class ItemDescription extends Component {
   state = {
-
   }
   handleClick = (e) => { 
+    const { name, } = e.target;
     this.setState({
+      eventName: name,
       clicked: true
     });
   }
 
+ 
 
   render() { 
-    const { clicked } = this.state;
+    const { clicked, eventName } = this.state;
      return (
               <div className='item-description-container'>
               <div className='item-description'>
@@ -70,10 +73,10 @@ class ItemDescription extends Component {
               </div>
               </div>
               <div className='item-description-btn'>
-           <span className='buy-item-btn' > <Modal
+           <span className='buy-iem-btn' > <Modal
              fluid
              header={clicked ? null : <Image src={LOGO} size='tiny' /> }
-             content={clicked ? <PaymentMsg /> : <PlaceOrder onClick={(e) => this.handleClick(e)} />}
+             content={<ManageModals eventName={eventName} onClick={(e) => this.handleClick(e)}/>}
              size={clicked ? 'tiny' : 'mini'} trigger={<Button primary> Buy now</Button>} /></span>
               <span className='add-to-cart-btn'> <Modal content={<AddToCart /> } size='tiny' trigger={ <Button > Add to cart</Button>} /></span>
               </div>
