@@ -6,5 +6,23 @@ import Cart from './Cart';
 import JoinBtn from './JoinBtn';
 import ItemCard from './ItemCard';
 import Modal from './Modal';
+import PlaceOrder from './PlaceOrder';
+import ItemQuantity from './ItemQuantity';
+import PaymentMsg from './PaymentMsg';
+import DeliveryAddress from './DeliveryAddress';
 
-export { Header, NavBar, DropDownBtn, SearchBar, Cart, JoinBtn, ItemCard, Modal };
+export {
+
+  Header,
+  NavBar,
+  DropDownBtn,
+  SearchBar,
+  Cart,
+  JoinBtn,
+  ItemCard,
+  Modal,
+  PlaceOrder,
+  ItemQuantity,
+  PaymentMsg,
+  DeliveryAddress
+};

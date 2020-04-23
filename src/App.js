@@ -7,12 +7,12 @@ const App = () => (
   <div className='App'>
     <Router>
       <Switch>
-        {routes.map(route => (
+        {routes.map((route) => (
           <Route
             key={route.name}
             exact
             path={route.path}
-            render={props => {
+            render={(props) => {
               document.title = route.name;
               return (
                 <route.component

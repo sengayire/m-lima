@@ -1,4 +1,4 @@
-import {Item} from '../components';
+import { Item } from '../components';
 
 export default {
   exact: true,

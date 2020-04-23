@@ -1,0 +1,8 @@
+.item-quantity{
+    display: flex;
+    flex-direction: column;
+    .action-btn{
+        display: flex;
+        justify-content: space-between;
+    }
+}

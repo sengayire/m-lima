@@ -1,0 +1,28 @@
+
+   .customer-modal{
+       background-color: #2ECC71;
+        border-radius: 5px !important;
+        .content{
+             border-radius: 5px !important;
+        }
+       .header{
+            border-bottom: 3px #2ECC71 solid !important ;
+            .logo{
+                width: 40%;
+                height: 100%;
+                .image{
+                  width: 80px;
+                }
+               
+            }
+        }
+        .right.corner.label{
+            border-color: transparent;
+            margin: 15px 5px 0 0;
+            }
+        }
+   
+    .ui.dimmer{
+        background-color: rgba(143, 143, 143, 0.664) !important;
+    }
+   

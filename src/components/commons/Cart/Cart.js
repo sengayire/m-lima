@@ -2,8 +2,7 @@ import React from 'react';
 import { Icon, Label } from 'semantic-ui-react';
 import './Cart.scss';
 
-const Cart = () => {
-  return (
+const Cart = () => (
     <div className='cart-container '>
       <div>
         <Icon style={{ color: 'white' }} size='big' name='cart' />
@@ -17,7 +16,6 @@ const Cart = () => {
         <span>Cart</span>
       </div>
     </div>
-  );
-};
+);
 
 export default Cart;

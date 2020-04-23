@@ -1,7 +1,7 @@
 import axiosHelper from '../helpers/axiosHelper';
 import { apiActionsTypes } from '../redux/actionTypes';
 
-const apiMiddleware = ({ dispatch, getState }) => next => async ({ type = '', payload = {} }) => {
+const apiMiddleware = ({ dispatch, getState }) => (next) => async ({ type = '', payload = {} }) => {
   if (type !== apiActionsTypes.API_REQUEST) {
     return next({ type, payload });
   }

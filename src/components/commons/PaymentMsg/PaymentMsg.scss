@@ -1,0 +1,17 @@
+.payment-mesasge{
+    display: flex;
+    flex-direction: column;
+    .success-icon{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 35%;
+    }
+    .payment-success-messge{
+           margin-left: 40px;
+        .success-message{
+            margin: 10px 0  20px;
+        }
+        
+    }
+}
