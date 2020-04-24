@@ -2,16 +2,26 @@
   display: flex;
   justify-content: space-between;
   margin-left: 20px;
+  display: flex;
+  align-items: flex-end;
   .join-btn {
     margin-left: 10px;
   }
   .sign-in {
     color: gray;
-    margin-top: 5px;
     cursor: pointer;
 
   }
 }
+.ui.popup{
+  margin-left: -20px !important;
+}
+    .ui.bottom.popup{
+       background-color: #ECF0F1;
+       border-radius: 10; 
+       width: 100%;
+    }
+    
 .signin-popup-container.left::before {
   background-color: #ECF0F1 !important;
   box-shadow: none !important;
@@ -20,5 +30,6 @@
 .signup-popup-container.left::before {
   background-color: #ECF0F1 !important;
   box-shadow: none !important;
+  margin-left: 50px !important;
 }
 

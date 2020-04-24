@@ -1,28 +1,20 @@
-import React, { Component} from 'react';
+import React from 'react';
 import { DeliveryAddress } from '../commons';
 
-class DeliveryInfo extends Component { 
-    state = {};
-    handleClick = () => { 
-        this.setState({
-            clicked: true
-        })
-    }
-    render() { 
-        const { clicked } = this.state;
-        return (
+const DeliveryInfo = ({ onClick }) => (
         <div>
             <div>Logo</div>
-            <div>
-                    {
-                        !clicked ? (<div>
-                            <DeliveryAddress />
-                            <div><span onClick={() => this.handleClick()}>Edit</span> <span>Add new address</span></div>
-                        </div>) : (<div> here</div>)
-                    }
+            <div style={{ background: '#F2F3F4', borderRadius: 10 }}>
+
+                         <div style={{ marginLeft: 30 }}>
+                            <DeliveryAddress onClick={onClick}/>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10 }}>
+                                <span onClick={onClick}><a>Edit</a>
+                                </span>
+                                <span><a>+ Add new address</a>
+                                </span></div>
+                        </div>
             </div>
-        </div>)
-    }
-}
+        </div>);
 
 export default DeliveryInfo;

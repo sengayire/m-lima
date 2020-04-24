@@ -1,17 +1,22 @@
 import React from 'react';
-import { Card, Label, Image, Rating, Grid, Icon } from 'semantic-ui-react';
+import { useHistory } from 'react-router-dom';
+import { Card, Label, Image, Rating, Grid } from 'semantic-ui-react';
+import { OfflineBolt, Toys, } from '@material-ui/icons/';
 import './ItemCard.scss';
 
-const ItemCard = () => (
+const ItemCard = () => {
+  const history = useHistory();
+
+  return (
     <div>
       <Card.Group stackable itemsPerRow={4} className='card-group-container' widths='2'>
         <Grid>
           <Grid.Row style={{ marginTop: 20, marginLeft: 30 }}>
             <Label attached='top left' className='group-label'>
-              <span>
-                <Icon name='question circle' size='large' color='red' />
-                Flash deals
-              </span>
+              <div>
+                <OfflineBolt className='flash-deals' style={{ color: 'red', fontSize: 25, marginRight: 5 }} />
+                 <span>flash deals</span>
+              </div>
             </Label>
             <Label className='group-label' attached='top right'>
               <span className='label-view-more'>View more</span>
@@ -23,6 +28,7 @@ const ItemCard = () => (
                 <Image
                   src='https://react.semantic-ui.com/images/wireframe/image.png'
                   style={{ borderRadius: '15px' }}
+                  onClick={() => { history.push('/item'); }}
                 />
                 <Label attached='bottom right' className='rating-label'>
                   <Rating maxRating={5} clearable />
@@ -82,10 +88,10 @@ const ItemCard = () => (
         <Grid>
           <Grid.Row style={{ marginTop: 20, marginLeft: 30 }}>
             <Label attached='top left' className='group-label'>
-              <span>
-                <Icon name='question circle' size='large' color='green' />
-                New on the market
-              </span>
+              <div>
+                <Toys className='new-on-market'/>
+                <span>New on the market</span>
+              </div>
             </Label>
             <Label className='group-label' attached='top right'>
               <span className='label-view-more'>View more</span>
@@ -152,6 +158,7 @@ const ItemCard = () => (
         </Grid>
       </Card.Group>
     </div>
-);
+  );
+};
 
 export default ItemCard;

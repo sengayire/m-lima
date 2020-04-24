@@ -8,4 +8,25 @@
   align-items: center;
   padding-left: 10px;
   margin-right: 10px;
+  .drop-down-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .ui.dropdown .menu{
+   width: 170px;  
+   border-radius: 5px;
+   .disabled.item{
+    background: gray;
+    border-radius: 3px;
+
+  }
+   .category-icon{
+     display: flex;
+     align-items: center;
+     height: 5px;
+     justify-content: space-evenly;
+
+   }
+  }
 }

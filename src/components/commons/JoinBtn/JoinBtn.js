@@ -10,7 +10,6 @@ const JoinBtn = () => (
       <Popup
        content={<Signin />}
        className='signin-popup-container'
-       style={{ backgroundColor: '#ECF0F1', borderRadius: 10, width: '100%' }}
        position='bottom left'
        pinned
        on='click'
