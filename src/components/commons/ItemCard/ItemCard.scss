@@ -8,13 +8,22 @@
   margin-bottom: -5px !important;
   .group-label.left {
     background-color: transparent !important;
+    div{
+      display: flex;
+      align-items: center;
+      .new-on-market{
+         color: white;
+         background-color: green;
+         border-radius: 10px;
+         padding: 2px;
+         margin-right: 5px;
+            }
+    }
   }
   .group-label.right.label {
     background-color: transparent !important;
     cursor: pointer;
     z-index: 2;
-    span {
-    }
   }
   .card-container {
     width: 25% !important;

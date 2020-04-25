@@ -1,32 +1,32 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import { Image, Button, Icon, } from 'semantic-ui-react';
 import { StarBorder } from '@material-ui/icons';
 import { Rating } from '@material-ui/lab';
 import './ItemDescription.scss';
-import { Modal, PlaceOrder, ItemQuantity, PaymentMsg } from '../commons';
+import { Modal, ItemQuantity } from '../commons';
 import AddToCart from '../AddToCart';
 import Delivery from '../Delivery';
-import LOGO  from '../../assets/images/logo.png';
 import ManageModals from '../ManageModels';
+import LOGO from '../../assets/images/logo.png';
 
 const PLACEHOLDER_IMAGE = 'https://react.semantic-ui.com/images/wireframe/image.png';
 
 class ItemDescription extends Component {
-  state = {
-  }
-  handleClick = (e) => { 
+  state = {}
+
+  handleClick = (e) => {
     const { name, } = e.target;
+    console.log('here man', name);
     this.setState({
       eventName: name,
       clicked: true
     });
   }
 
- 
 
-  render() { 
+  render() {
     const { clicked, eventName } = this.state;
-     return (
+    return (
               <div className='item-description-container'>
               <div className='item-description'>
               <span><b>Item description</b></span>
@@ -83,6 +83,6 @@ class ItemDescription extends Component {
               </div>
     );
   }
-};
+}
 
 export default ItemDescription;

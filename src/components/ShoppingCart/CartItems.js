@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './ShoppingCart.scss';
 import { Button, Checkbox, Image } from 'semantic-ui-react';
 import { InsertComment, DeleteSweep } from '@material-ui/icons';
-import { ItemQuantity } from '../commons';
+import { ItemQuantity, Modal } from '../commons';
+import ManageModals from '../ManageModels';
+import LOGO from '../../assets/images/logo.png';
 
 const PLACEHOLDER_IMAGE = 'https://react.semantic-ui.com/images/wireframe/image.png';
 
-const CartItems = () => (
+class CartItems extends Component {
+  state = {}
+
+  handleClick = (e) => {
+    const { name, } = e.target;
+    this.setState({
+      eventName: name,
+      clicked: true
+    });
+  }
+
+  render() {
+    const { clicked, eventName } = this.state;
+    return (
         <div className='cart-items-container'>
           <div className='cart-items'>
           <div className='all-carts-orders'>
@@ -47,7 +62,13 @@ const CartItems = () => (
                       <div><ItemQuantity /></div>
                     </div>
                   </div>
-                  <div className='buy-item-btn'><Button content='Buy this item' primary /></div>
+                  <div className='buy-item-btn'>
+                  <Modal
+                    fluid
+                    header={clicked ? null : <Image src={LOGO} size='tiny' /> }
+                    content={<ManageModals eventName={eventName} onClick={(e) => this.handleClick(e)}/>}
+                    size={clicked ? 'tiny' : 'mini'} trigger={<center><Button content='Buy this item' primary size='mini'/></center>} />
+                    </div>
                 </div>
               </div>
           </div>
@@ -60,12 +81,20 @@ const CartItems = () => (
                 </div>
                 <div className='item-total-price'>
                   <div className='item-price' ><span>Total:</span> <span>frw 4,000</span> </div>
-                  <div> <center><Button primary content='Buy(1)'/></center></div>
+                  <div>
+                  <Modal
+                    fluid
+                    header={clicked ? null : <Image src={LOGO} size='tiny' /> }
+                    content={<ManageModals eventName={eventName} onClick={(e) => this.handleClick(e)}/>}
+                    size={clicked ? 'tiny' : 'mini'} trigger={<center><Button primary content='Buy(1)' size='mini'/></center>} />
+                    </div>
                 </div>
               </div>
           </div>
           </div>
         </div>
-);
+    );
+  }
+}
 
 export default CartItems;

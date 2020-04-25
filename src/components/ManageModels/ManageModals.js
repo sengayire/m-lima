@@ -3,15 +3,13 @@ import { PaymentMsg, PlaceOrder } from '../commons';
 import DeliveryInfo from '../DeliveryInfo';
 
 const ManageModels = ({ eventName, onClick }) => {
-    console.log('name here ==', eventName)
-
-    if (eventName === 'placeOrder') {
-        return <PaymentMsg onClick={onClick}/>
-    }
-    if (eventName === 'deliverInfo') { 
-        return <DeliveryInfo />
-    }
-    return <PlaceOrder onClick={onClick} />
-}
+  if (eventName === 'placeOrder') {
+    return <PaymentMsg onClick={onClick}/>;
+  }
+  if (eventName === 'deliverInfo') {
+    return <DeliveryInfo onClick={onClick}/>;
+  }
+  return <PlaceOrder onClick={onClick} />;
+};
 
 export default ManageModels;

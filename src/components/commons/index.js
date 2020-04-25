@@ -10,6 +10,7 @@ import PlaceOrder from './PlaceOrder';
 import ItemQuantity from './ItemQuantity';
 import PaymentMsg from './PaymentMsg';
 import DeliveryAddress from './DeliveryAddress';
+import MarketPlaceLogo from './MarketPlaceLogo';
 
 export {
 
@@ -24,5 +25,6 @@ export {
   PlaceOrder,
   ItemQuantity,
   PaymentMsg,
-  DeliveryAddress
+  DeliveryAddress,
+  MarketPlaceLogo
 };
