@@ -1,3 +1,4 @@
 import DeliveryAddress from './DeliveryAddress';
+import Address from './Address';
 
-export default DeliveryAddress;
+export { Address, DeliveryAddress };

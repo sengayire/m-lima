@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Image, Button, Icon, } from 'semantic-ui-react';
 import { StarBorder } from '@material-ui/icons';
 import { Rating } from '@material-ui/lab';
@@ -7,26 +7,10 @@ import { Modal, ItemQuantity } from '../commons';
 import AddToCart from '../AddToCart';
 import Delivery from '../Delivery';
 import ManageModals from '../ManageModels';
-import LOGO from '../../assets/images/logo.png';
 
 const PLACEHOLDER_IMAGE = 'https://react.semantic-ui.com/images/wireframe/image.png';
 
-class ItemDescription extends Component {
-  state = {}
-
-  handleClick = (e) => {
-    const { name, } = e.target;
-    console.log('here man', name);
-    this.setState({
-      eventName: name,
-      clicked: true
-    });
-  }
-
-
-  render() {
-    const { clicked, eventName } = this.state;
-    return (
+const ItemDescription = () => (
               <div className='item-description-container'>
               <div className='item-description'>
               <span><b>Item description</b></span>
@@ -73,16 +57,13 @@ class ItemDescription extends Component {
               </div>
               </div>
               <div className='item-description-btn'>
-           <span className='buy-iem-btn' > <Modal
-             fluid
-             header={clicked ? null : <Image src={LOGO} size='tiny' /> }
-             content={<ManageModals eventName={eventName} onClick={(e) => this.handleClick(e)}/>}
-             size={clicked ? 'tiny' : 'mini'} trigger={<Button primary> Buy now</Button>} /></span>
+           <span className='buy-iem-btn' >
+           <ManageModals triggerModal={<Button primary> Buy now</Button>}/>
+           </span>
               <span className='add-to-cart-btn'> <Modal content={<AddToCart /> } size='tiny' trigger={ <Button > Add to cart</Button>} /></span>
               </div>
               </div>
-    );
-  }
-}
+);
+
 
 export default ItemDescription;

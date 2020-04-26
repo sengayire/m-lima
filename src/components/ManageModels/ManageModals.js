@@ -1,15 +1,39 @@
-import React from 'react';
-import { PaymentMsg, PlaceOrder } from '../commons';
+import React, { Component } from 'react';
+import { PaymentMsg, PlaceOrder, Modal, MarketPlaceLogo } from '../commons';
 import DeliveryInfo from '../DeliveryInfo';
 
-const ManageModels = ({ eventName, onClick }) => {
-  if (eventName === 'placeOrder') {
-    return <PaymentMsg onClick={onClick}/>;
+
+class ManageModels extends Component {
+  state ={};
+
+  handleModal = (e) => {
+    const { name } = e.target;
+    this.setState({ eventName: name });
+  };
+
+
+  render() {
+    const { eventName } = this.state;
+    const { triggerModal } = this.props;
+
+    if (eventName === 'placeOrder') {
+      return <Modal
+      fluid
+      content={ <PaymentMsg onClick={(e) => this.handleModal(e)}/>}
+      size={'tiny'} trigger={triggerModal} />;
+    }
+    if (eventName === 'deliverInfo') {
+      return <Modal
+      fluid
+      content={ <DeliveryInfo onClick={(e) => this.handleModal(e)}/>}
+      size={'small'} trigger={triggerModal} />;
+    }
+    return <Modal
+    fluid
+    header={<MarketPlaceLogo /> }
+    content={<PlaceOrder onClick={(e) => this.handleModal(e)}/>}
+    size={'mini'} trigger={triggerModal} />;
   }
-  if (eventName === 'deliverInfo') {
-    return <DeliveryInfo onClick={onClick}/>;
-  }
-  return <PlaceOrder onClick={onClick} />;
-};
+}
 
 export default ManageModels;

@@ -1,3 +1,4 @@
+import UserAvatar from './UserAvatar';
 import Header from './Header';
 import NavBar from './NavBar';
 import DropDownBtn from './DropDownBtn';
@@ -9,8 +10,9 @@ import Modal from './Modal';
 import PlaceOrder from './PlaceOrder';
 import ItemQuantity from './ItemQuantity';
 import PaymentMsg from './PaymentMsg';
-import DeliveryAddress from './DeliveryAddress';
+import { DeliveryAddress } from './DeliveryAddress';
 import MarketPlaceLogo from './MarketPlaceLogo';
+import FormInput from './FormInput';
 
 export {
 
@@ -26,5 +28,7 @@ export {
   ItemQuantity,
   PaymentMsg,
   DeliveryAddress,
-  MarketPlaceLogo
+  MarketPlaceLogo,
+  FormInput,
+  UserAvatar
 };

@@ -3,10 +3,7 @@ import { Table, Radio, Button } from 'semantic-ui-react';
 import './Delivery.scss';
 
 
-class DeliveryTable extends Component {
-    
-  render() {
-      return (
+const DeliveryTable = () => (
             <div className='delivery-table'>
           <div className='delivery-user-address'><b>Deliver to <a>user_address</a></b></div>
           <div><b>Delivery method</b></div>
@@ -66,8 +63,6 @@ class DeliveryTable extends Component {
                   <div><center><Button size='tiny' primary content='Apply' /></center></div>
                 </div>
             </div>
-    );
-  }
-}
+);
 
 export default DeliveryTable;
