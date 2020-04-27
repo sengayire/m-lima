@@ -1,10 +1,21 @@
 .side-bar-container{
-    background: green;
+    background: #079994;
     .side-bar-menu{
-        background: red;
-        margin-top: 50px;
+        margin-top: 30%;
+        font-size: small;
         .pointing.menu{
             width: 100%;
+            color: white;
+            .item{
+                color: white !important;
+                font-size: medium;
+                padding-left: 20% !important;
+            }
+            .item.active{
+                border-right: 1px solid #eee639 !important;
+                background: rgba(255, 255, 255, 0.205) !important;
+                font-size: big;
+            }
         }
     }
 }

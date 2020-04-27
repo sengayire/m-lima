@@ -3,9 +3,9 @@ import SideBarMenu from './SideBarMenu';
 
 import './SideBar.scss';
 
-const SideBar = () => (
+const SideBar = ({activeItem, onClick}) => (
         <div className='side-bar-container'>
-           <SideBarMenu />
+           <SideBarMenu activeItem={activeItem} onClick={onClick}/>
         </div>
 );
 

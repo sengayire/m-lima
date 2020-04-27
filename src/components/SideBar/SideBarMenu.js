@@ -2,31 +2,26 @@ import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
 
 class SideBarMenu extends Component {
-  state = { activeItem: 'home' }
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  ordersItemMenu= [
+    { name: 'all orders' },
+    { name: 'awaiting shipment' },
+    { name: 'awaiting delivery' },
+    { name: 'awaiting payment' },
+    { name: 'delivery' },
+  ]
 
   render() {
-    const { activeItem } = this.state;
-
+    const { activeItem, onClick } = this.props;
     return (
       <div className='side-bar-menu'>
         <Menu pointing secondary vertical>
-        <Menu.Item
-          name='home'
-          active={activeItem === 'home'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name='messages'
-          active={activeItem === 'messages'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name='friends'
-          active={activeItem === 'friends'}
-          onClick={this.handleItemClick}
-        />
+          {
+            this.ordersItemMenu.map(({ name }) => (<Menu.Item
+                name={name}
+                active={activeItem === name}
+                onClick={onClick}
+              />))
+          }
       </Menu>
       </div>
     );
