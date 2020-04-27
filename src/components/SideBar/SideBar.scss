@@ -1,0 +1,10 @@
+.side-bar-container{
+    background: green;
+    .side-bar-menu{
+        background: red;
+        margin-top: 50px;
+        .pointing.menu{
+            width: 100%;
+        }
+    }
+}
