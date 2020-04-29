@@ -5,8 +5,8 @@ import './UserAvatar.scss';
 
 const UserAvatar = () => (
         <div className='user-avatar-container'>
-      <Avatar alt="Remy Sharp" src={userAvatar}/>
-      <span>Hi, John Doe!</span>
+            <Avatar alt='Remy Sharp' src={userAvatar} className='user-avatar'/>
+            <span className='user-name'>Hi, John Doe!</span>
         </div>
 );
 
