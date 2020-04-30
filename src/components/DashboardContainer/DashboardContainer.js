@@ -12,10 +12,11 @@ class DashboardContainer extends Component {
 
     render() {
       const { activeItem } = this.state;
+      const { manageMenu, menuItems } = this.props;
       return (
         <div className='dashboard-container'>
-            <SideBar activeItem={activeItem} onClick={this.handleItemClick}/>
-            <BoardContent activeItem={activeItem}/>
+            <SideBar menuItems={menuItems}activeItem={activeItem} onClick={this.handleItemClick}/>
+            <BoardContent cases={manageMenu(activeItem)}/>
         </div>
       );
     }
