@@ -10,7 +10,13 @@
     height: 100%;
     span{
         cursor: pointer;
-
+        height: 100%;
+        display: flex;
+        align-items: center;
+        border-bottom: #eee639 2px solid;
+    }
+    span:hover{
+        color: #eee639;
     }
     }
 }

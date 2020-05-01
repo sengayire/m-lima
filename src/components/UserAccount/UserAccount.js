@@ -4,14 +4,16 @@ import Container from '../../container';
 import { Header } from '../commons';
 import Dashboard from './Dashboard';
 import PersonalInformation from './PersonalInformation';
+import ShippingAddress from './ShippingAddress';
+import SecurityInfo from './SecurityInfo';
 
 const UserAccount = () => {
   const manageMenu = (activeItem) => {
     switch (activeItem) {
       case 'dashboard': return <Dashboard name='ShoppingCart'/>;
       case 'personal information': return <PersonalInformation />;
-      case 'security information': return <div>Security information</div>;
-      case 'my shipping address': return <div>My Shipping address</div>;
+      case 'security information': return <SecurityInfo />;
+      case 'my shipping address': return <ShippingAddress />;
       default: return <Dashboard />;
     }
   };
