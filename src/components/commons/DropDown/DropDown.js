@@ -1,7 +1,9 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Dropdown, Icon, Flag } from 'semantic-ui-react';
 
 const DropDown = ({ icon }) => {
+  const history = useHistory();
   const languageOption = [
     { icon: <Flag name='rwanda' />, text: 'Kinyarwanda' },
     { icon: <Flag name='france' />, text: 'French' },
@@ -10,12 +12,12 @@ const DropDown = ({ icon }) => {
   ];
 
   const userOptions = [
-    { text: <span>My orders</span> },
+    { text: <span>My orders</span>, redirect: '/userID/orders' },
     { text: <span>Messages(2)</span> },
     { text: <span>language - English</span> },
-    { text: <span>My account</span> },
+    { text: <span>My account</span>, redirect: '/user_id/account' },
     { text: <span>Help</span> },
-    { text: <span>Notifications(1)</span> },
+    { text: <span>Notifications (1)</span> },
     { text: <span>Market demand</span> },
     { text: <span>Logout</span> },
   ];
@@ -26,10 +28,10 @@ const DropDown = ({ icon }) => {
     icon={icon || <Icon name='chevron down' className='drop-down-chevron' size='small'/> }
   >
     <Dropdown.Menu className='drop-down-menu'>
-      { (!icon && languageOption.map((element) => (
-          <Dropdown.Item icon={element.icon} text={element.text} />
-      ))) || userOptions.map((element) => (
-        <Dropdown.Item text={element.text} />)) }
+      { (!icon && languageOption.map(({ icon, text }) => (
+          <Dropdown.Item icon={icon} text={text} />
+      ))) || userOptions.map(({ text, redirect }) => (
+        <Dropdown.Item text={text} onClick={() => { history.push(redirect); }}/>)) }
     </Dropdown.Menu>
   </Dropdown>);
 };

@@ -7,7 +7,7 @@ import './MarketPlaceLogo.scss';
 const MarketPlaceLogo = () => {
   const history = useHistory();
   return (
-        <div onClick={() => history.push('/') } className='markey-place-logo'>
+        <div onClick={() => history.push('/') } className='market-place-logo'>
             <Image src={logo}/>
             <span><h3>Market Place</h3></span>
         </div>
