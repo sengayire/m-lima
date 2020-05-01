@@ -1,13 +1,15 @@
 import React from 'react';
+// import { AllOrders } from '../UserOrders';
 
-const BoardContent = ({ activeItem }) => (
-                <div className='board-content'>
-                        {activeItem === 'all orders' && <div>All order</div> }
-                        {activeItem === 'awaiting shipment' && <div>shipment here</div> }
-                        {activeItem === 'awaiting delivery' && <div>awaiting delivery</div> }
-                        {activeItem === 'awaiting payment' && <div>awaiting payment</div> }
-                        {activeItem === 'delivery' && <div>awaiting delivery</div> }
-                </div>
-);
+const BoardContent = ({ cases }) => {
+  const manageActiveItem = (cases) => cases;
+  return (
+        <div className='board-content'>
+        {
+        manageActiveItem(cases)
+        }
+        </div>
+  );
+};
 
 export default BoardContent;

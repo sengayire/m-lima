@@ -10,7 +10,7 @@ const Header = () => (
       <MarketPlaceLogo />
     </div>
     <div className='drop-down'>
-      <DropDown icon={<UserAvatar />}/>
+      <DropDown icon={<UserAvatar userName='Hi, John Doe!' />}/>
     </div>
   </div>
 );

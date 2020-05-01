@@ -13,6 +13,10 @@ import PaymentMsg from './PaymentMsg';
 import { DeliveryAddress } from './DeliveryAddress';
 import MarketPlaceLogo from './MarketPlaceLogo';
 import FormInput from './FormInput';
+import DashboardCard from './DashboardCard';
+import FormCard from './FormCard';
+import FormButton from './FormButton';
+import ItemsTable from './ItemsTable';
 
 export {
 
@@ -30,5 +34,9 @@ export {
   DeliveryAddress,
   MarketPlaceLogo,
   FormInput,
-  UserAvatar
+  UserAvatar,
+  DashboardCard,
+  FormCard,
+  FormButton,
+  ItemsTable
 };

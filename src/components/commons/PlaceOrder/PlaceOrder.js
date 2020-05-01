@@ -8,7 +8,8 @@ const PlaceOrder = ({ onClick }) => (
         <div className='place-order-container'>
          <div className='place-order order-summary'>
            <span><center>Order Summary</center></span>
-           <span className='order-description' style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}><span>Total:</span> <span>frw 3,000</span></span>
+           <span className='order-description' style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+             <span>Total:</span> <span>frw 3,000</span></span>
          </div>
          <div className='place-order deliver-info' style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
             <div>
