@@ -5,7 +5,7 @@ import Cart from '../Cart';
 import JoinBtn from '../JoinBtn';
 import './NavBar.scss';
 
-const NavBar = () => (
+const NavBar = ({ isAuth }) => (
   <div className='nav-bar'>
     <div>
       <DropDownBtn />
@@ -17,7 +17,7 @@ const NavBar = () => (
       <Cart />
     </div>
     <div>
-      <JoinBtn />
+    {!isAuth && <JoinBtn />}
     </div>
   </div>
 );

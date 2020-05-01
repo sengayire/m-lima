@@ -6,8 +6,8 @@ import ItemDetails from '../ItemDetails';
 
 const Item = () => (
 		 <Container
-          header={<Header />}
-          content={<Contents contents={<ItemDetails />} />}
+          header={<Header isAuth={true}/>}
+          content={<Contents isAuth={true} contents={<ItemDetails />} />}
         />
 );
 

@@ -4,7 +4,7 @@
     flex-direction: column;
     background: #FFFFFF;
     height: 80%;
-    margin: 50px 0 0 50px;
+    padding: 50px 0 0 50px;
     .form-card-header{
         background: #2980b9;
         height: 10%;
@@ -30,6 +30,10 @@
                 .form-input-container{
                     width: 40%;
                 }
+            }
+            .form-content .no-bg{
+                background: transparent;
+
             }
             .form-bottom-container{
                 height: 50%;

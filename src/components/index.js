@@ -6,6 +6,7 @@ import ShoppingCart from './ShoppingCart';
 import Orders from './Orders';
 import Account from './UserAccount';
 import Seller from './SellerDashboard';
+import SellerSignup from './SellerSignup';
 
 
-export { Home, Signin, Signup, Item, ShoppingCart, Orders, Account, Seller };
+export { Home, Signin, Signup, Item, ShoppingCart, Orders, Account, Seller, SellerSignup };

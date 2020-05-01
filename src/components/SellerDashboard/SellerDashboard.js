@@ -27,7 +27,7 @@ const SellerDashboard = () => {
     { name: 'market demand' },
   ];
   return (<Container
-  header={<Header/>}
+  header={<Header isAuth={true}/>}
   content={<DashboardContainer menuItems={ordersMenuItems} manageMenu={manageMenu}/>}
 />);
 };

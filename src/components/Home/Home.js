@@ -6,7 +6,7 @@ import ItemsContainer from '../ItemsContainer';
 
 const Home = () => (
     <Container
-      header={<Header />}
+      header={<Header isAuth={false}/>}
       content={<Contents contents={<ItemsContainer items={<ItemCard />} />} />}
     />
 );
