@@ -23,7 +23,7 @@ const Orders = () => {
     { name: 'delivery' },
   ];
   return (<Container
-  header={<Header/>}
+  header={<Header isAuth={true}/>}
   content={<DashboardContainer menuItems={ordersMenuItems} manageMenu={manageMenu}/>}
 />);
 };

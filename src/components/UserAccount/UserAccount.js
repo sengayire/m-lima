@@ -22,7 +22,7 @@ const UserAccount = () => {
     { name: 'my shipping address' },
   ];
   return (<Container
-  header={<Header/>}
+  header={<Header isAuth={true}/>}
   content={<DashboardContainer menuItems={ordersMenuItems} manageMenu={manageMenu}/>}
 />);
 };

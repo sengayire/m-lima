@@ -2,9 +2,9 @@ import React from 'react';
 import { NavBar } from '../commons';
 import './Contents.scss';
 
-const Contents = ({ contents }) => (
+const Contents = ({ contents, isAuth }) => (
     <div className='content-container'>
-      <div className='nav-bar'>{<NavBar />}</div>
+      <div className='nav-bar'>{<NavBar  isAuth={isAuth}/>}</div>
       <div className='items-container'>{contents}</div>
     </div>
 );
