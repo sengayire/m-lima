@@ -7,6 +7,18 @@ import Orders from './Orders';
 import Account from './UserAccount';
 import Seller from './SellerDashboard';
 import SellerSignup from './SellerSignup';
+import MarketDemand from './MarketDemand';
 
 
-export { Home, Signin, Signup, Item, ShoppingCart, Orders, Account, Seller, SellerSignup };
+export {
+  Home,
+  Signin,
+  Signup,
+  Item,
+  ShoppingCart,
+  Orders,
+  Account,
+  Seller,
+  SellerSignup,
+  MarketDemand
+};
