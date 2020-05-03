@@ -5,6 +5,7 @@ import orders from './orders';
 import account from './account';
 import seller from './seller';
 import sellerSignup from './sellerSignup';
+import marketdemand from './marketDemand';
 
 
-export default [home, item, shoppingCart, orders, account, seller, sellerSignup];
+export default [home, item, shoppingCart, orders, account, seller, sellerSignup, marketdemand];

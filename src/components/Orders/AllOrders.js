@@ -1,7 +1,7 @@
 import React from 'react';
 import './Orders.scss';
 import { Image, Card } from 'semantic-ui-react';
-import { Delete } from '@material-ui/icons';
+import { DeleteSweep } from '@material-ui/icons';
 
 const PLACEHOLDER_IMAGE = 'https://react.semantic-ui.com/images/wireframe/image.png';
 
@@ -46,7 +46,7 @@ const AllOrders = () => (
                     </div>
                    <div className='order-price'>
                    <span>Frw 3, 000</span>
-                  <Delete />
+                  <DeleteSweep />
                    </div>
                     </div>
                 </div>

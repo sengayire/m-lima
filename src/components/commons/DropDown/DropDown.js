@@ -18,7 +18,7 @@ const DropDown = ({ icon, isAuth }) => {
     { text: <span>My account</span>, redirect: '/user_id/account' },
     { text: <span>Help</span> },
     { text: <span>Notifications (1)</span> },
-    { text: <span>Market demand</span> },
+    { text: <span>Market demand</span>, redirect: '/market_demand' },
     { text: <span>Logout</span>, redirect: '/' },
   ];
   return (

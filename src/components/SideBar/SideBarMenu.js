@@ -5,7 +5,7 @@ const SideBarMenu = ({ activeItem, onClick, menuItems }) => (
   <div className='side-bar-menu'>
         <Menu pointing secondary vertical>
           {
-            menuItems.map(({ name }) => (<Menu.Item
+            menuItems && menuItems.map(({ name }) => (<Menu.Item
                 name={name}
                 active={activeItem === name}
                 onClick={onClick}
