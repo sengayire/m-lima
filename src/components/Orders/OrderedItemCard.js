@@ -1,26 +1,16 @@
 import React from 'react';
-import './Orders.scss';
 import { Image, Card } from 'semantic-ui-react';
-import { Delete } from '@material-ui/icons';
+import { DeleteSweep, KeyboardArrowDown } from '@material-ui/icons';
 
 const PLACEHOLDER_IMAGE = 'https://react.semantic-ui.com/images/wireframe/image.png';
 
-const AllOrders = () => (
-<div className='all-orders-container'>
-    <h1>My Orders</h1>
-    <div className='all-orders-header'>
-        <div className='all-orders-header-nav'>
-            <span>All orders (3)</span>
-            <span>Awaiting shipment (1)</span>
-            <span>Awaiting delivery (1)</span>
-            <span>Delivery (1)</span>
-            <span>Awaiting payment (0)</span>
-        </div>
-    </div>
-    <div className='orders-items-description'>
+const OrderedItemCard = () => (
+    <div className='all-orders-container'>
+
+        <div className='orders-items-description'>
         <div className='order-items-title'>
             <span>Item</span>
-            <span>Sort by</span>
+            <span style={{ display: 'flex', alignItems: 'center' }}>Sort by <KeyboardArrowDown /></span>
             <span>Status</span>
             <span>Price</span>
         </div>
@@ -46,7 +36,7 @@ const AllOrders = () => (
                     </div>
                    <div className='order-price'>
                    <span>Frw 3, 000</span>
-                  <Delete />
+                  <DeleteSweep />
                    </div>
                     </div>
                 </div>
@@ -73,10 +63,7 @@ const AllOrders = () => (
             </div>
         </div>
     </div>
-    <div>
-
     </div>
-</div>
 );
 
-export default AllOrders;
+export default OrderedItemCard;

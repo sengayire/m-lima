@@ -6,7 +6,12 @@ const FormInput = ({ label, placeholder, icon, bordered, size, type }) => (
         <div>
             <Form.Field className='input-field'>
                 <span>{label}</span>
-                <Input type={type} size={size} placeholder={placeholder} icon={icon} className={!bordered ? 'form-input' : 'form-input-bordered'}/>
+                <Input
+                type={type}
+                size={size}
+                placeholder={placeholder}
+                icon={icon}
+                className={!bordered ? 'form-input' : 'form-input-bordered'}/>
             </Form.Field>
         </div>
 );
