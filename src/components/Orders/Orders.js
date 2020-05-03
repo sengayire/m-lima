@@ -3,15 +3,19 @@ import DashboardContainer from '../DashboardContainer';
 import Container from '../../container';
 import { Header } from '../commons';
 import AllOrders from './AllOrders';
+import AwaitingShipping from './AwaitingShipping';
+import AwaitingDelivery from './AwaitingDelivery';
+import AwaitingPayment from './AwaitingPayment';
+import Delivery from './Delivery';
 
 const Orders = () => {
   const manageMenu = (activeItem) => {
     switch (activeItem) {
       case 'all orders': return <AllOrders />;
-      case 'awaiting shipment': return <div>shipment here</div>;
-      case 'awaiting delivery': return <div>awaiting delivery</div>;
-      case 'awaiting payment': return <div>awaiting payment</div>;
-      case 'delivery': return <div>awaiting delivery</div>;
+      case 'awaiting shipment': return <AwaitingShipping />;
+      case 'awaiting delivery': return <AwaitingDelivery />;
+      case 'awaiting payment': return <AwaitingPayment />;
+      case 'delivery': return <Delivery />;
       default: return <AllOrders />;
     }
   };

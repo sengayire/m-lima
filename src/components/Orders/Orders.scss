@@ -25,7 +25,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 40px 0 20px;
+            padding: 0 10% 0 20px;
             border-radius: 2px;
             font-weight: bold;
             background: #ededed;
@@ -37,21 +37,76 @@
             background: #ededed;
             display: flex;
             flex-direction: column;
+            // justify-content: space-between;
             padding: 0 10px 0 20px;
             border-radius: 2px;
             height: 30%;
             margin-top: 5px;
-            .order-info{
-              display: flex;
-              justify-content: space-between;
-              width: 40%;
-              margin-top: 10px;
+            width: 100%;
+            .order-info-body{
+                 display: flex;
+                 margin-bottom: 1%;
+                .order-info{
+                  display: flex;
+                  margin-top: 10px;
+                  width: 40%;
+                  justify-content: space-between;
+                  .order-id-time{
+                      display: flex;
+                      flex-direction: column;
+                    }
+                    .seller-info-contact{
+                    display: flex;
+                    flex-direction: column;
+                  }
+                }
+                .order-delivery-price{
+                    width: 60%;
+                    .delivery-return{
+                        display: flex;
+                        justify-content: space-between;
+                        margin-left: 30%;
+                        height: 100%;
+                        align-items: flex-end;
+                        .order-price{
+                            display: flex;
+                            justify-content: space-evenly;
+                            width: 35%;
+
+                        }
+
+                    }
+                }
             }
-            .item-delivery-info{
+            .item-image-description{
                 display: flex;
-                justify-content: space-between;
-                margin-top: 5px;
+                width: 60;
+                position: relative;
+                .item-image-container{
+                    width: 10%;
+                    background: transparent !important;
+                    border: 0px solid;
+                    .item-image{
+                        position: absolute;
+                    }
+                    .item-image{
+                      border-radius: 10px;
+                    }
+                }
             }
-        }
+            .item-description{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 50%;
+                height: 90%;
+                margin-left: 1%;
+            }
+            .item-type-quantity{
+                display: flex;
+                flex-direction: column;
+                margin-top: 1%;
+            }
+            }
     }
 }
