@@ -4,8 +4,8 @@ import { Check, Close } from '@material-ui/icons';
 import { FormCard, FormInput, FormButton, UserAvatar } from '../commons';
 import FormHeader from './FormHeader';
 
-const Cooperative = ({ handleClick }) => (
-        <FormCard header={<FormHeader handleClick={handleClick}/>}
+const Cooperative = ({ handleClick, name }) => (
+        <FormCard header={<FormHeader name={name} handleClick={handleClick}/>}
         contents={
         <Form>
         <div className='form-content no-bg'>

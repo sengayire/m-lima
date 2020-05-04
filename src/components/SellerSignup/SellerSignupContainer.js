@@ -6,9 +6,9 @@ import Cooperative from './Coperative';
 
 const SellerSignupContainer = ({ handleClick, name }) => (
         <div className='seller-signup-container'>
-         {name === 'individual' && <Individual handleClick={handleClick}/>}
-         {name === 'company' && <Company handleClick={handleClick}/>}
-         {name === 'cooperative' && <Cooperative handleClick={handleClick}/>}
+         {name === 'individual' && <Individual name={name} handleClick={handleClick}/>}
+         {name === 'company' && <Company name={name} handleClick={handleClick}/>}
+         {name === 'cooperative' && <Cooperative name={name} handleClick={handleClick}/>}
         </div>);
 
 export default SellerSignupContainer;

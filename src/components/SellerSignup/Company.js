@@ -4,8 +4,8 @@ import { Check, Close } from '@material-ui/icons';
 import { FormCard, FormInput, FormButton, UserAvatar } from '../commons';
 import FormHeader from './FormHeader';
 
-const Company = ({ handleClick }) => (
-        <FormCard header={<FormHeader handleClick={handleClick} />}
+const Company = ({ handleClick, name }) => (
+        <FormCard header={<FormHeader name={name} handleClick={handleClick} />}
         contents={
         <Form>
         <div className='form-content'>
