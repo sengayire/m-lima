@@ -17,6 +17,7 @@ import DashboardCard from './DashboardCard';
 import FormCard from './FormCard';
 import FormButton from './FormButton';
 import ItemsTable from './ItemsTable';
+import TextEditor from './TextEditor';
 
 export {
 
@@ -38,5 +39,6 @@ export {
   DashboardCard,
   FormCard,
   FormButton,
-  ItemsTable
+  ItemsTable,
+  TextEditor
 };

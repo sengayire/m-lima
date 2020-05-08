@@ -9,7 +9,6 @@ import Seller from './SellerDashboard';
 import SellerSignup from './SellerSignup';
 import MarketDemand from './MarketDemand';
 
-
 export {
   Home,
   Signin,

@@ -8,4 +8,13 @@ import sellerSignup from './sellerSignup';
 import marketdemand from './marketDemand';
 
 
-export default [home, item, shoppingCart, orders, account, seller, sellerSignup, marketdemand];
+export default [
+  home,
+  item,
+  shoppingCart,
+  orders,
+  account,
+  seller,
+  sellerSignup,
+  marketdemand,
+];
