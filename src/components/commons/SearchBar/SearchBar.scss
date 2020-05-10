@@ -5,6 +5,11 @@
     border-radius: 10px !important;
     background: #ecf0f1 !important;
   }
+  input .bordered {
+    border-color: red !important;
+    border-radius: 10px !important;
+    background: #ecf0f1 !important;
+  }
   button {
     border-top-right-radius: 10px !important;
     border-bottom-right-radius: 10px !important;
@@ -15,3 +20,23 @@
     }
   }
 }
+.search-bar-input.bordered {
+  height: 30px !important;
+  margin-bottom: 10px;
+  input{
+    border-color: gray !important;
+      border-radius: 10px !important;
+      background: transparent !important;
+    }
+    button {
+      border: 1px gray solid;
+      border-top-right-radius: 10px gray !important;
+      border-bottom-right-radius: 10px !important;
+      background: transparent !important;
+      
+      .search.link{
+        position: relative;
+        bottom: 7px;
+      }
+    }
+  }

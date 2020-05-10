@@ -1,4 +1,126 @@
 .seller-dashboard-container{
     width: 100%;
-    margin: 2% 4% 0 4%;
+    margin: 3% 4% 0 4%;
+    height: 100%;
+    .seller-dashboard-header{
+        color: gray;
+    }
+    .seller-search-new{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        .seller-search-input{
+        margin-top: 5px;
+        color: gray;
+        opacity: 1;
+        font-weight: bold;
+        }
+    }
+    .new-product-container{
+        width: 100%;
+        height: 100%;
+        .new-product-description{
+            height: 100%;
+            .form{
+                height: 100%;
+                width: 100%;
+                display: flex;
+                .product-form-inputs-container{
+                    width: 70%;
+                    height: 100%;
+                    .form-inputs{
+                        width: 100%;
+                        display: flex;
+                        margin-top: 3%;;
+                        div{
+                            width: 95%;
+                        }
+
+                    }
+
+                }
+                .product-form-image-container{
+                    width: 30%;
+                    height: 50%;
+                    .form-product-image{
+                        height: 100%;
+                        display: flex;
+                        .product-image{
+                            width: 80%;
+                            height: 80%;
+                            display: flex;
+                            flex-direction: column;
+                           align-items: center;
+                            .product-image-box{
+                                width: 80%;
+                                height: 80%;
+                                border: solid rgba(128, 128, 128, 0.342) 1px;
+                                box-shadow: 0 10px 10px 0 #8888885d;
+                                
+                            }
+                            .upload-product-image{
+                                display: flex;
+                                align-items: center;
+                                height: 20%;
+                                text-decoration: underline;
+                                cursor: pointer;
+                            }
+                            .product-form-btn{
+                                width: 70%;
+                                display: flex;
+                                justify-content: space-evenly;
+                            }
+
+                        }
+                        .product-form-edit{
+                            display: flex;
+                            align-items: center;
+                            height: 50%;
+                            text-decoration: underline;
+                            cursor: pointer;
+                        }
+                     }
+                }
+
+            }
+        }
+    }
+}
+.actions-buttons-container{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    .action-button-edit{
+        display: flex;
+        border: 2px #f7da59 solid;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+      .edit-icon{
+            position: relative;
+            bottom: 2px;
+            left: 1px;
+            color: #f7da59;
+        }
+        
+    }
+    .action-button-delete{
+        display: flex;
+        border: 2px red solid;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+        
+     .delete-icon{
+            position: relative;
+            bottom: 2px;
+            left: 1px;
+            color: red;
+        }
+    }
 }

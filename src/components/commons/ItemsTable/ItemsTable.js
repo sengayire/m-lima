@@ -13,8 +13,11 @@ const StickyHeadTable = ({ columns, rows }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
+  // document.getElementsByClassName('MuiTablePagination-caption')[0].innerHTML = 'prince';
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
+    // console.log('the doc', docs[0].innerHTML);
   };
 
   const handleChangeRowsPerPage = (event) => {
