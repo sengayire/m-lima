@@ -1,4 +1,4 @@
-import { apiActionsTypes } from '../redux/actionTypes';
+import { apiActionsTypes } from '../redux/actionsTypes';
 
 export default ({
   url = '',

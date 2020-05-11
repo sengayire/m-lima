@@ -4,7 +4,7 @@ import Signup from './Signup';
 import Item from './Item';
 import ShoppingCart from './ShoppingCart';
 import Orders from './Orders';
-import Account from './UserAccount';
+import { UserAccount as Account, SecurityInfo, PersonalInfo } from './UserAccount';
 import Seller from './SellerDashboard';
 import SellerSignup from './SellerSignup';
 import MarketDemand from './MarketDemand';
@@ -17,7 +17,9 @@ export {
   ShoppingCart,
   Orders,
   Account,
+  SecurityInfo,
+  PersonalInfo,
   Seller,
   SellerSignup,
-  MarketDemand
+  MarketDemand,
 };
