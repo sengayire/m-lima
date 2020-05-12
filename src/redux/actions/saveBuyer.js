@@ -14,5 +14,5 @@ export default (formData) => (dispatch) =>
       onSuccess: buyerActionsTypes.SAVE_BUYER_SUCCESS,
       onFailure: buyerActionsTypes.SAVE_BUYER_FAILURE,
     }),
-    console.log('here man!', formData),
+    console.log('here man!'),
   );
