@@ -4,22 +4,21 @@ import { Header } from '../commons';
 import SellerSignupContainer from './SellerSignupContainer';
 
 class SellerSignup extends Component {
-    state= { name: 'individual' };
+  state = { name: 'individual' };
 
-   handleClick = (name) => {
-     this.setState({ name });
-   };
+  handleClick = (name) => {
+    this.setState({ name });
+  };
 
-   render() {
-     const { name } = this.state;
-     console.log(name)
-     return (
-        <Container
+  render() {
+    const { name } = this.state;
+    return (
+      <Container
         header={<Header />}
         content={<SellerSignupContainer name={name} handleClick={this.handleClick} />}
       />
-     );
-   }
+    );
+  }
 }
 
 export default SellerSignup;

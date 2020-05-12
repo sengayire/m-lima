@@ -3,25 +3,21 @@ import './SellerDashboard.scss';
 import AllProducts from './AllProducts';
 import NewProduct from './NewProduct';
 
-
 class Products extends Component {
-  state= {};
+  state = {};
 
-   handleClick = (e) => {
-     this.setState({ action: e });
-   };
+  handleClick = (e) => {
+    this.setState({ action: e });
+  };
 
-   render() {
-     const { action } = this.state;
-     console.log('action here', action);
-     return (
-      <div className='seller-dashboard-container'>
-          {action === 'newProduct' ? <NewProduct />
-            : <AllProducts handleClick={this.handleClick}/>
-          }
+  render() {
+    const { action } = this.state;
+    return (
+      <div className="seller-dashboard-container">
+        {action === 'newProduct' ? <NewProduct /> : <AllProducts handleClick={this.handleClick} />}
       </div>
-     );
-   }
+    );
+  }
 }
 
 export default Products;

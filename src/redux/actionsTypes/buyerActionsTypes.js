@@ -1,0 +1,5 @@
+// save buyers
+export const SAVE_BUYER_START = 'SAVE_BUYER_START';
+export const SAVE_BUYER_END = 'SAVE_BUYER_END';
+export const SAVE_BUYER_SUCCESS = 'SAVE_BUYER_SUCCESS';
+export const SAVE_BUYER_FAILURE = 'SAVE_BUYER_FAILURE';

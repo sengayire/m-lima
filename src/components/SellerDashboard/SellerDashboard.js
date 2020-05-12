@@ -4,18 +4,27 @@ import Container from '../../container';
 import { Header } from '../commons';
 import Dashboard from './Dashboard';
 import Products from './Products';
-
+import Orders from './Orders';
+import MarketDemand from './MarketDemand';
+import { SecurityInfo, PersonalInfo } from '../UserAccount';
 
 const SellerDashboard = () => {
   const manageMenu = (activeItem) => {
     switch (activeItem) {
-      case 'dashboard': return <Dashboard />;
-      case 'personal information': return <div>again ger</div>;
-      case 'security information': return <div>Security information</div>;
-      case 'orders': return <div>hello here</div>;
-      case 'products': return <Products />;
-      case 'market demand': return <Dashboard />;
-      default: return <Dashboard />;
+      case 'dashboard':
+        return <Dashboard />;
+      case 'personal information':
+        return <PersonalInfo />;
+      case 'security information':
+        return <SecurityInfo />;
+      case 'orders':
+        return <Orders />;
+      case 'products':
+        return <Products />;
+      case 'market demand':
+        return <MarketDemand />;
+      default:
+        return <Dashboard />;
     }
   };
   const ordersMenuItems = [
@@ -26,10 +35,12 @@ const SellerDashboard = () => {
     { name: 'products' },
     { name: 'market demand' },
   ];
-  return (<Container
-  header={<Header isAuth={true}/>}
-  content={<DashboardContainer menuItems={ordersMenuItems} manageMenu={manageMenu}/>}
-/>);
+  return (
+    <Container
+      header={<Header isAuth />}
+      content={<DashboardContainer menuItems={ordersMenuItems} manageMenu={manageMenu} />}
+    />
+  );
 };
 
 export default SellerDashboard;
