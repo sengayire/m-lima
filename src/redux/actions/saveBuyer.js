@@ -2,10 +2,9 @@ import { buyerActionsTypes } from '../actionsTypes';
 import { apiAction } from '../../helpers';
 
 export default (formData) => (dispatch) =>
-  dispatch(
-    apiAction({
+  dispatch(apiAction({
       method: 'post',
-      url: '/buyers',
+      url: '/buyers/signup',
       data: {
         ...formData,
       },
@@ -13,6 +12,4 @@ export default (formData) => (dispatch) =>
       onEnd: buyerActionsTypes.SAVE_BUYER_END,
       onSuccess: buyerActionsTypes.SAVE_BUYER_SUCCESS,
       onFailure: buyerActionsTypes.SAVE_BUYER_FAILURE,
-    }),
-    console.log('here man!'),
-  );
+    }),);

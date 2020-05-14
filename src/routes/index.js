@@ -6,7 +6,8 @@ import account from './account';
 import seller from './seller';
 import sellerSignup from './sellerSignup';
 import marketdemand from './marketDemand';
-
+import activateAccount from './activateAccount';
+import activeLogin from './activateLogin';
 
 export default [
   home,
@@ -17,4 +18,6 @@ export default [
   seller,
   sellerSignup,
   marketdemand,
+  activateAccount,
+  activeLogin,
 ];

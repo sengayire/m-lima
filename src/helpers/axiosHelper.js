@@ -10,8 +10,8 @@ export default (data = {}) => {
 
   const baseURL =
     URL ||
-    (reactUrl && `${reactUrl}/mlima-marketplace/api`) ||
-    (defaultUrl && `${defaultUrl}/mlima-marketplace/api`);
+    (reactUrl && `${reactUrl}/mlimaplatform/api`) ||
+    (defaultUrl && `${defaultUrl}/mlimaplatform/api`);
   const headers = { 'access-token': token || localStorage.token || undefined };
 
   return (NODE_ENV === 'test' && axios) || axios.create({ baseURL, headers });

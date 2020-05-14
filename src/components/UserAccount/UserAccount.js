@@ -10,11 +10,16 @@ import SecurityInfo from './SecurityInfo';
 const UserAccount = () => {
   const manageMenu = (activeItem) => {
     switch (activeItem) {
-      case 'dashboard': return <Dashboard name='ShoppingCart'/>;
-      case 'personal information': return <PersonalInformation />;
-      case 'security information': return <SecurityInfo />;
-      case 'my shipping address': return <ShippingAddress />;
-      default: return <Dashboard />;
+      case 'dashboard':
+        return <Dashboard name="ShoppingCart" />;
+      case 'personal information':
+        return <PersonalInformation />;
+      case 'security information':
+        return <SecurityInfo />;
+      case 'my shipping address':
+        return <ShippingAddress />;
+      default:
+        return <Dashboard />;
     }
   };
   const ordersMenuItems = [
@@ -23,10 +28,12 @@ const UserAccount = () => {
     { name: 'security information' },
     { name: 'my shipping address' },
   ];
-  return (<Container
-  header={<Header isAuth={true}/>}
-  content={<DashboardContainer menuItems={ordersMenuItems} manageMenu={manageMenu}/>}
-/>);
+  return (
+    <Container
+      header={<Header isAuth />}
+      content={<DashboardContainer menuItems={ordersMenuItems} manageMenu={manageMenu} />}
+    />
+  );
 };
 
 export default UserAccount;

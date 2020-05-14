@@ -1,30 +1,32 @@
-import { buyerActionsTypes } from '../../actionsTypes';
+import { activateAccountActionsTypes } from '../../actionsTypes';
 
 export default (state, { type, payload }) => {
+  console.log('active account', payload);
+
   switch (type) {
-    case buyerActionsTypes.SAVE_BUYER_START:
+    case activateAccountActionsTypes.ACTIVATE_ACCOUNT_START:
       return {
         ...state,
         message: '',
         loading: true,
         errors: {},
       };
-    case buyerActionsTypes.SAVE_BUYER_END:
+    case activateAccountActionsTypes.ACTIVATE_ACCOUNT_END:
       return {
         ...state,
         loading: false,
       };
-    case buyerActionsTypes.SAVE_BUYER_SUCCESS:
+    case activateAccountActionsTypes.ACTIVATE_ACCOUNT_SUCCESS:
       return {
         ...state,
         payload,
         loading: false,
       };
-    case buyerActionsTypes.SAVE_BUYER_FAILURE:
+    case activateAccountActionsTypes.ACTIVATE_ACCOUNT_FAILURE:
       return {
         ...state,
         loading: false,
-        message: payload.message,
+        message: payload,
         errors: {
           ...payload.errors,
         },
