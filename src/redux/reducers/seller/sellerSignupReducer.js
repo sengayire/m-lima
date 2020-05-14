@@ -5,28 +5,39 @@ export default (state, { type, payload }) => {
     case buyerActionsTypes.SAVE_BUYER_START:
       return {
         ...state,
-        message: '',
-        loading: true,
-        errors: {},
+        signup: {
+          message: '',
+          loading: true,
+          errors: {},
+        },
       };
     case buyerActionsTypes.SAVE_BUYER_END:
       return {
         ...state,
-        loading: false,
+        signup: {
+          ...state.signup,
+          loading: false,
+        },
       };
     case buyerActionsTypes.SAVE_BUYER_SUCCESS:
       return {
         ...state,
-        payload,
-        loading: false,
+        profile: payload.user,
+        signup: {
+          loading: false,
+          message: payload.message,
+          errors: {},
+        },
       };
     case buyerActionsTypes.SAVE_BUYER_FAILURE:
       return {
         ...state,
-        loading: false,
-        message: payload.message,
-        errors: {
-          ...payload.errors,
+        signup: {
+          loading: false,
+          message: payload.message,
+          errors: {
+            ...payload.errors,
+          },
         },
       };
     default:

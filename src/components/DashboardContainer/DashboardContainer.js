@@ -4,22 +4,22 @@ import './DashboardContainer.scss';
 import SideBar from '../SideBar';
 
 class DashboardContainer extends Component {
-    state = { activeItem: 'all Orders' }
+  state = { activeItem: 'all Orders' };
 
-    handleItemClick = (e, { name }) => {
-      this.setState({ activeItem: name });
-    }
+  handleItemClick = (e, { name }) => {
+    this.setState({ activeItem: name });
+  };
 
-    render() {
-      const { activeItem } = this.state;
-      const { manageMenu, menuItems } = this.props;
-      return (
-        <div className='dashboard-container'>
-            <SideBar menuItems={menuItems}activeItem={activeItem} onClick={this.handleItemClick}/>
-            <BoardContent cases={manageMenu(activeItem)}/>
-        </div>
-      );
-    }
+  render() {
+    const { activeItem } = this.state;
+    const { manageMenu, menuItems } = this.props;
+    return (
+      <div className="dashboard-container">
+        <SideBar menuItems={menuItems} activeItem={activeItem} onClick={this.handleItemClick} />
+        <BoardContent cases={manageMenu(activeItem)} />
+      </div>
+    );
+  }
 }
 
 export default DashboardContainer;

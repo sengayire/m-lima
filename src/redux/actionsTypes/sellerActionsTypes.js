@@ -1,0 +1,5 @@
+// Seller actions types
+export const SAVE_SELLER_START = 'SAVE_SELLER_START';
+export const SAVE_SELLER_END = 'SAVE_SELLER_END';
+export const SAVE_SELLER_SUCCESS = 'SAVE_SELLER_SUCCESS';
+export const SAVE_SELLER_FAILURE = 'SAVE_SELLER_FAILURE';

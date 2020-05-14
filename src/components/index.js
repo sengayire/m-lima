@@ -8,6 +8,7 @@ import { UserAccount as Account, SecurityInfo, PersonalInfo } from './UserAccoun
 import Seller from './SellerDashboard';
 import SellerSignup from './SellerSignup';
 import MarketDemand from './MarketDemand';
+import { ActivateAccount, ActiveLogin } from './ActivateAccount';
 
 export {
   Home,
@@ -22,4 +23,6 @@ export {
   Seller,
   SellerSignup,
   MarketDemand,
+  ActivateAccount,
+  ActiveLogin,
 };

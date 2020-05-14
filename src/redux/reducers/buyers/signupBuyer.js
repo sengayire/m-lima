@@ -2,34 +2,34 @@ import { buyerActionsTypes } from '../../actionsTypes';
 
 export default (state, { type, payload }) => {
   switch (type) {
-    case buyerActionsTypes.SAVE_BUYER_START:
+    case buyerActionsTypes.BUYER_SIGNUP_START:
       return {
         ...state,
         message: '',
         loading: true,
         errors: {},
       };
-    case buyerActionsTypes.SAVE_BUYER_END:
+    case buyerActionsTypes.BUYER_SIGNUP_END:
       return {
         ...state,
         loading: false,
       };
-    case buyerActionsTypes.SAVE_BUYER_SUCCESS:
+    case buyerActionsTypes.BUYER_SIGNUP_SUCCESS:
       return {
         ...state,
         payload,
         loading: false,
       };
-    case buyerActionsTypes.SAVE_BUYER_FAILURE:
+    case buyerActionsTypes.BUYER_SIGNUP_FAILURE:
       return {
         ...state,
         loading: false,
-        message: payload.message,
+        message: 'User already exist',
         errors: {
           ...payload.errors,
         },
       };
     default:
-      return null;
+      return state;
   }
 };

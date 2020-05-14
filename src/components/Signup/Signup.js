@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
 import 'react-toastify/dist/ReactToastify.css';
 import { connect } from 'react-redux';
 import { Button, Form, Input, Checkbox, Image, Loader } from 'semantic-ui-react';
@@ -9,7 +9,7 @@ import Alert from '@material-ui/lab/Alert';
 import facebook from '../../assets/images/facebook.svg';
 import gmail from '../../assets/images/gmail.svg';
 import instagram from '../../assets/images/instagram.svg';
-import { saveBuyer } from '../../redux/actions';
+import { saveBuyer, buyerSignup } from '../../redux/actions';
 
 class Signup extends Component {
   state = {
@@ -17,7 +17,9 @@ class Signup extends Component {
       firstName: '',
       lastName: '',
       contactEmail: '',
+      password: '',
     },
+    payload: {},
     checked: 'buyer',
     agreed: false,
     redirect: 'false',
@@ -41,30 +43,24 @@ class Signup extends Component {
   };
 
   handleAgree = () => {
-    const { agreed } = this.state;
-    console.log('aggres =====>>>', agreed);
-
     this.setState({ agreed: true });
   };
 
   handleSubmit = () => {
     const { createBuyer } = this.props;
-    const {
-      form: { firstName, lastName, contactEmail },
-      checked,
-      agreed,
-    } = this.state;
+    const { form, checked, agreed } = this.state;
     return agreed
-      ? (checked === 'buyer' && createBuyer({ firstName, lastName, contactEmail })) ||
-          this.setState({ redirect: true })
+      ? (checked === 'buyer' && createBuyer(form)) || this.setState({ redirect: true })
       : this.setState({ errors: { message: 'Please Agree to the term and services' } });
   };
 
   UNSAFE_componentWillReceiveProps = (nextProps) => {
     const {
-      signup: { loading, message, errors },
+      buyers: { loading, message, errors, payload },
     } = nextProps;
+    const { form } = this.state;
     this.setState({
+      payload,
       errors: { ...errors },
       message,
       loading,
@@ -72,9 +68,17 @@ class Signup extends Component {
   };
 
   render() {
-    const { form, errors, message, loading, checked, redirect } = this.state;
+    const { form, errors, message, loading, checked, redirect, payload } = this.state;
     return (
       <div>
+        {Object.keys(payload).length !== 0 && (
+          <Redirect
+            to={{
+              pathname: '/activate_account',
+              state: { payload },
+            }}
+          />
+        )}
         {Object.keys(errors).length || message ? (
           <Alert severity="error">{message || errors.message}</Alert>
         ) : (
@@ -82,7 +86,7 @@ class Signup extends Component {
         )}
         {loading && <Loader active inline="centered" />}
         {redirect === true && <Redirect to="/signup/seller" />}
-        <Form onSubmit={this.handleSubmit}>
+        <Form>
           <center>
             <h3>Sign up</h3>
           </center>
@@ -113,6 +117,17 @@ class Signup extends Component {
               onChange={this.handleChange}
               value={form.contactEmail}
               type="email"
+              className="signup-inputs"
+              size="mini"
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Password</label>
+            <Input
+              name="password"
+              onChange={this.handleChange}
+              value={form.password}
+              type="password"
               className="signup-inputs"
               size="mini"
             />
@@ -205,8 +220,8 @@ class Signup extends Component {
 //   onClearSignupErrors: PropTypes.func
 // };
 
-const mapStateToProps = ({ buyers: { signup } }) => ({
-  signup,
+const mapStateToProps = ({ buyers }) => ({
+  buyers,
 });
 
 const mapDispatchToProps = (dispatch) => ({

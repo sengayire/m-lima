@@ -1,11 +1,16 @@
 import React from 'react';
-import './SellerSignup.scss';
 
 const FormHeader = ({ handleClick }) => (
   <div className="seller-form-header">
-    <span onClick={() => handleClick('individual')}>Individual</span>
-    <span onClick={() => handleClick('company')}>Company</span>
-    <span onClick={() => handleClick('cooperative')}>Cooperative</span>
+    <button type="button" className="individual" onClick={() => handleClick('individual')}>
+      Individual
+    </button>
+    <button type="button" className="company" onClick={() => handleClick('company')}>
+      Company
+    </button>
+    <button type="button" className="cooperative" onClick={() => handleClick('cooperative')}>
+      Cooperative
+    </button>
   </div>
 );
 

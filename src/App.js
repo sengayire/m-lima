@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import routes from './routes';
 
 const App = () => (
-  <div className='App'>
+  <div className="App">
     <Router>
       <Switch>
         {routes.map((route) => (
