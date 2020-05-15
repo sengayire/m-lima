@@ -1,17 +1,12 @@
-.input-field {
-	margin-bottom: 20px !important;
-	.form-input input {
-		height: 25px;
-		border: none !important;
-	}
-	.form-input-bordered input {
-		width: 100%;
-		height: 30px;
-		border: #cbcbcb solid 2px !important;
-	}
-	.form-input-bordered.error input {
-		width: 100%;
-		height: 30px;
-		border: red solid 2px !important;
-	}
+.input-field{
+    margin-bottom: 20px !important;
+    .form-input input{
+        height: 25px;
+        border: none !important;
+    }
+    .form-input-bordered input{
+        width: 100%;
+        height: 30px;
+        border: #cbcbcb solid 2px !important;
+    }
 }

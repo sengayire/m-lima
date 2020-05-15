@@ -4,16 +4,13 @@ import UserAvatar from '../UserAvatar';
 import MarketPlaceLogo from '../MarketPlaceLogo';
 import './Header.scss';
 
-const Header = ({ isAuth, profile }) => (
-  <div className="header-container">
+const Header = ({isAuth}) => (
+  <div className='header-container'>
     <div>
       <MarketPlaceLogo />
     </div>
-    <div className="drop-down">
-      <DropDown
-        isAuth={isAuth}
-        icon={<UserAvatar userName={`${profile && `Hi! ${profile.name}`}`} />}
-      />
+    <div className='drop-down'>
+      <DropDown isAuth={isAuth} icon={<UserAvatar userName='Hi, John Doe!' />}/>
     </div>
   </div>
 );

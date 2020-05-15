@@ -8,7 +8,6 @@ import sellerSignup from './sellerSignup';
 import marketdemand from './marketDemand';
 import activateAccount from './activateAccount';
 import activeLogin from './activateLogin';
-import logout from './logout';
 
 export default [
   home,
@@ -21,5 +20,4 @@ export default [
   marketdemand,
   activateAccount,
   activeLogin,
-  logout,
 ];

@@ -9,7 +9,6 @@ import Seller from './SellerDashboard';
 import SellerSignup from './SellerSignup';
 import MarketDemand from './MarketDemand';
 import { ActivateAccount, ActiveLogin } from './ActivateAccount';
-import Logout from './Logout';
 
 export {
   Home,
@@ -26,5 +25,4 @@ export {
   MarketDemand,
   ActivateAccount,
   ActiveLogin,
-  Logout,
 };
