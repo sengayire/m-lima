@@ -27,7 +27,7 @@ const Cooperative = ({
         <Loader inverted content="Loading" />
       </Dimmer>
     )}
-    <span>Cooperative application</span>
+    <span>Cooperative Application</span>
     <FormCard
       header={<FormHeader selected={selected} handleClick={handleClick} />}
       contents={
