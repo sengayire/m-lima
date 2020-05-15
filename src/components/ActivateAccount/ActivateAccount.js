@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
+import Alert from '@material-ui/lab/Alert';
 import Container from '../../container';
 import { Header } from '../commons';
 import 'react-toastify/dist/ReactToastify.css';
 import ActivateForm from './ActivateForm';
 import { activateAccount } from '../../redux/actions';
+import ActiveLogin from './ActiveLogin';
 
 class ActivateAccount extends Component {
   state = {

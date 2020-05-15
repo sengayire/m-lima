@@ -1,32 +1,43 @@
-import { sellerActionsTypes } from '../../actionsTypes';
+import { buyerActionsTypes } from '../../actionsTypes';
 
 export default (state, { type, payload }) => {
-  console.log('here', payload);
   switch (type) {
-    case sellerActionsTypes.SAVE_SELLER_START:
+    case buyerActionsTypes.SAVE_BUYER_START:
       return {
         ...state,
-        message: '',
-        loading: true,
-        errors: {},
+        signup: {
+          message: '',
+          loading: true,
+          errors: {},
+        },
       };
-    case sellerActionsTypes.SAVE_SELLER_END:
+    case buyerActionsTypes.SAVE_BUYER_END:
       return {
         ...state,
-        loading: false,
+        signup: {
+          ...state.signup,
+          loading: false,
+        },
       };
-    case sellerActionsTypes.SAVE_SELLER_SUCCESS:
+    case buyerActionsTypes.SAVE_BUYER_SUCCESS:
       return {
         ...state,
-        payload,
+        profile: payload.user,
+        signup: {
+          loading: false,
+          message: payload.message,
+          errors: {},
+        },
       };
-    case sellerActionsTypes.SAVE_SELLER_FAILURE:
+    case buyerActionsTypes.SAVE_BUYER_FAILURE:
       return {
         ...state,
-        loading: false,
-        message: payload.message,
-        errors: {
-          ...payload.errors,
+        signup: {
+          loading: false,
+          message: payload.message,
+          errors: {
+            ...payload.errors,
+          },
         },
       };
     default:

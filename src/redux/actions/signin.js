@@ -14,5 +14,4 @@ export default (formData) => (dispatch) =>
       onSuccess: signinActionsTypes.SIGNIN_SUCCESS,
       onFailure: signinActionsTypes.SIGNIN_FAILURE,
     }),
-    console.log('form here', formData),
   );
