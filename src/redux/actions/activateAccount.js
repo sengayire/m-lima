@@ -2,9 +2,10 @@ import { activateAccountActionsTypes } from '../actionsTypes';
 import { apiAction } from '../../helpers';
 
 export default (formData) => (dispatch) =>
-  dispatch(apiAction({
+  dispatch(
+    apiAction({
       method: 'post',
-      url: '/auth/activate-account',
+      url: '/core/api/auth/activate-account',
       data: {
         ...formData,
       },
@@ -12,4 +13,5 @@ export default (formData) => (dispatch) =>
       onEnd: activateAccountActionsTypes.ACTIVATE_ACCOUNT_END,
       onSuccess: activateAccountActionsTypes.ACTIVATE_ACCOUNT_SUCCESS,
       onFailure: activateAccountActionsTypes.ACTIVATE_ACCOUNT_FAILURE,
-    }),);
+    }),
+  );

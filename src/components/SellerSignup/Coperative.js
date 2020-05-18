@@ -3,6 +3,7 @@ import { Form, Icon, Dimmer, Loader } from 'semantic-ui-react';
 import { Check, Close } from '@material-ui/icons';
 import { Link, Redirect } from 'react-router-dom';
 import { Alert } from '@material-ui/lab';
+import { ToastContainer } from 'react-toastify';
 import { FormCard, FormInput, FormButton, UserAvatar } from '../commons';
 import FormHeader from './FormHeader';
 
@@ -17,18 +18,14 @@ const Cooperative = ({
   payload,
 }) => (
   <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-    {Object.keys(errors).length || message ? (
-      <Alert severity="error">{message || errors.message}</Alert>
-    ) : (
-      ''
-    )}
     {loading && (
       <Dimmer active inverted>
         <Loader inverted content="Loading" />
       </Dimmer>
     )}
-    <span>Cooperative Application</span>
+    <ToastContainer />
     <FormCard
+      title="Cooperative Application"
       header={<FormHeader selected={selected} handleClick={handleClick} />}
       contents={
         <Form>
@@ -42,7 +39,7 @@ const Cooperative = ({
           )}
           <div className="form-content no-bg">
             <div className="form-input-container">
-              <FormInput onChange={handleChange} label="Cooperative Name" bordered />
+              <FormInput name="name" onChange={handleChange} label="Cooperative Name" bordered />
               <FormInput
                 onChange={handleChange}
                 icon={<Icon name="attach" />}
@@ -61,8 +58,18 @@ const Cooperative = ({
                 label="Cooperative Physical Address Cell"
                 bordered
               />
-              <FormInput onChange={handleChange} label="Contact Person name" bordered />
-              <FormInput onChange={handleChange} label="Contact Person National ID" bordered />
+              <FormInput
+                name="contactPersonName"
+                onChange={handleChange}
+                label="Contact Person name"
+                bordered
+              />
+              <FormInput
+                name="contactPersonNationalId"
+                onChange={handleChange}
+                label="Contact Person National ID"
+                bordered
+              />
               <FormInput
                 onChange={handleChange}
                 icon={<Icon name="attach" />}
@@ -71,7 +78,12 @@ const Cooperative = ({
               />
             </div>
             <div className="form-input-container">
-              <FormInput onChange={handleChange} label="Registration Number" bordered />
+              <FormInput
+                name="licenseNumber"
+                onChange={handleChange}
+                label="Registration Number"
+                bordered
+              />
               <FormInput
                 onChange={handleChange}
                 icon="caret down"
@@ -85,13 +97,26 @@ const Cooperative = ({
                 bordered
               />
               <FormInput
+                name="cooperativeVillageId"
                 onChange={handleChange}
                 icon="caret down"
                 label="Cooperative Physical Address Village"
                 bordered
               />
-              <FormInput onChange={handleChange} label="Contact Person Phone Number" bordered />
+              <FormInput
+                name="contactPhone"
+                onChange={handleChange}
+                label="Contact Person Phone Number"
+                bordered
+              />
               <FormInput onChange={handleChange} label="Contact Person Email" bordered />
+              <FormInput
+                name="password"
+                type="password"
+                onChange={handleChange}
+                label="Password"
+                bordered
+              />
             </div>
             <div>
               <UserAvatar size="large" upload="Upload profile picture" />

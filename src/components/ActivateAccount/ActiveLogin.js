@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
 import 'react-toastify/dist/ReactToastify.css';
 import { Form, Dimmer, Loader } from 'semantic-ui-react';
 import { Check } from '@material-ui/icons';
@@ -17,10 +17,8 @@ class ActiveLogin extends Component {
       login: '',
     },
     isAuth: false,
-    profile: {},
     errors: {},
     loading: '',
-    payload: {},
     message: '',
   };
 
@@ -40,7 +38,7 @@ class ActiveLogin extends Component {
 
   UNSAFE_componentWillReceiveProps = (nextProps) => {
     const {
-      login: { loading, isAuth, message, errors },
+      login: { loading, isAuth, message, errors, payload },
     } = nextProps;
 
     if (message.status === 401) {
@@ -52,14 +50,17 @@ class ActiveLogin extends Component {
       isAuth,
       message,
       errors,
+      payload,
     });
   };
 
   render() {
-    const { loading, isAuth, message, errors } = this.state;
-
+    const { loading, isAuth, message, errors, payload } = this.state;
+    console.log('authority=', payload);
     return (
-      (isAuth && <Redirect to="/" />) || (
+      (isAuth && (
+        <Redirect to={(payload && payload.sellerType && '/seller/dashboard') || '/'} />
+      )) || (
         <Container
           header={<Header />}
           content={
@@ -80,7 +81,7 @@ class ActiveLogin extends Component {
                 </Dimmer>
               )) ||
                 (errors && <Alert severity="error">{errors.message}</Alert>) ||
-                (message && (
+                (message && Object.keys(message).length && (
                   <Alert severity="error">
                     {message.message ||
                       `${(message.login && `email ${message.login}`) || ''}` +
@@ -160,8 +161,9 @@ class ActiveLogin extends Component {
   }
 }
 
-const mapStateToProps = ({ signin }) => ({
+const mapStateToProps = ({ signin, seller: { payload } }) => ({
   login: signin,
+  payload,
 });
 
 const mapDispatchToProps = (dispatch) => ({

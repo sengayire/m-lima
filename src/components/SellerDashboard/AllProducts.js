@@ -52,37 +52,38 @@ const createData = (
   action,
 });
 
-const rows = [
-  createData(
-    'India',
-    'IN',
-    1324171354,
-    3287263,
-    <ItemStatus status="delivered" color="white" bg="#05c46b" />,
-    <Actions />,
-  ),
-];
-
-const AllProducts = ({ handleClick }) => (
-  <div>
-    <div className="seller-dashboard-header">
-      <h1>Products</h1>
-    </div>
-    <div className="seller-search-new">
-      <div className="seller-search-input">
-        <span>Search</span>
-        <SearchBar bordered placeHolder="" size="sm" />
+const AllProducts = ({ handleClick }) => {
+  const rows = [
+    createData(
+      'India',
+      'IN',
+      1324171354,
+      3287263,
+      <ItemStatus status="delivered" color="white" bg="#05c46b" />,
+      <Actions handleClick={handleClick} />,
+    ),
+  ];
+  return (
+    <div>
+      <div className="seller-dashboard-header">
+        <h1>Products</h1>
       </div>
-      <div>
-        <Button name="newProduct" primary onClick={() => handleClick('newProduct')}>
-          {' '}
-          <Icon name="add" />
-          New
-        </Button>
+      <div className="seller-search-new">
+        <div className="seller-search-input">
+          <span>Search</span>
+          <SearchBar bordered placeHolder="" size="sm" />
+        </div>
+        <div>
+          <Button name="newProduct" primary onClick={() => handleClick('newProduct')}>
+            {' '}
+            <Icon name="add" />
+            New
+          </Button>
+        </div>
       </div>
+      <ItemsTable columns={columns} rows={rows} />
     </div>
-    <ItemsTable columns={columns} rows={rows} />
-  </div>
-);
+  );
+};
 
 export default AllProducts;

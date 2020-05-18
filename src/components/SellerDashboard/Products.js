@@ -6,7 +6,13 @@ import NewProduct from './NewProduct';
 class Products extends Component {
   state = {};
 
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    console.log('nextPrps', nextProps);
+  }
+
   handleClick = (e) => {
+    console.log('event', e);
+
     this.setState({ action: e });
   };
 

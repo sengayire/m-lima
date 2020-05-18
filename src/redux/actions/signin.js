@@ -5,7 +5,7 @@ export default (formData) => (dispatch) =>
   dispatch(
     apiAction({
       method: 'post',
-      url: '/auth/signin',
+      url: '/core/api/auth/signin',
       data: {
         ...formData,
       },

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import DashboardContainer from '../DashboardContainer';
 import Container from '../../container';
 import { Header } from '../commons';
@@ -7,8 +8,28 @@ import PersonalInformation from './PersonalInformation';
 import ShippingAddress from './ShippingAddress';
 import SecurityInfo from './SecurityInfo';
 
-const UserAccount = () => {
-  const manageMenu = (activeItem) => {
+class UserAccount extends Component {
+  state = {
+    profile: {},
+    isAuth: false,
+  };
+
+  ordersMenuItems = [
+    { name: 'dashboard' },
+    { name: 'personal information' },
+    { name: 'security information' },
+    { name: 'my shipping address' },
+  ];
+
+  componentDidMount() {
+    const { profile, isAuth } = this.props;
+    this.setState({
+      profile,
+      isAuth,
+    });
+  }
+
+  manageMenu = (activeItem) => {
     switch (activeItem) {
       case 'dashboard':
         return <Dashboard name="ShoppingCart" />;
@@ -22,18 +43,23 @@ const UserAccount = () => {
         return <Dashboard />;
     }
   };
-  const ordersMenuItems = [
-    { name: 'dashboard' },
-    { name: 'personal information' },
-    { name: 'security information' },
-    { name: 'my shipping address' },
-  ];
-  return (
-    <Container
-      header={<Header isAuth />}
-      content={<DashboardContainer menuItems={ordersMenuItems} manageMenu={manageMenu} />}
-    />
-  );
-};
 
-export default UserAccount;
+  render() {
+    const { profile, isAuth } = this.state;
+
+    return (
+      <Container
+        header={<Header profile={profile} isAuth={isAuth} />}
+        content={
+          <DashboardContainer menuItems={this.ordersMenuItems} manageMenu={this.manageMenu} />
+        }
+      />
+    );
+  }
+}
+const mapStateToprops = ({ signin: { profile, isAuth } }) => ({
+  profile,
+  isAuth,
+});
+
+export default connect(mapStateToprops, null)(UserAccount);

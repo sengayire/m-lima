@@ -1,4 +1,4 @@
-import { user as initialState } from '../../store/initialState';
+import { signin as initialState } from '../../store/initialState';
 import signinReducer from './signinReducer';
 
 export default (state = initialState, action) => ({

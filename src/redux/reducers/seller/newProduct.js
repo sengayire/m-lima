@@ -1,25 +1,27 @@
-import { sellerActionsTypes } from '../../actionsTypes';
+import { productsActionsTypes } from '../../actionsTypes';
 
 export default (state, { type, payload }) => {
+  console.log('new production', payload);
+
   switch (type) {
-    case sellerActionsTypes.SAVE_SELLER_START:
+    case productsActionsTypes.CREATE_NEW_PRODUCT_START:
       return {
         ...state,
         message: '',
         loading: true,
         errors: {},
       };
-    case sellerActionsTypes.SAVE_SELLER_END:
+    case productsActionsTypes.CREATE_NEW_PRODUCT_END:
       return {
         ...state,
         loading: false,
       };
-    case sellerActionsTypes.SAVE_SELLER_SUCCESS:
+    case productsActionsTypes.CREATE_NEW_PRODUCT_SUCCESS:
       return {
         ...state,
         payload,
       };
-    case sellerActionsTypes.SAVE_SELLER_FAILURE:
+    case productsActionsTypes.CREATE_NEW_PRODUCT_FAILURE:
       return {
         ...state,
         loading: false,

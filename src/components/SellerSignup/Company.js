@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import { Form, Icon, Dimmer, Loader, Image, Segment } from 'semantic-ui-react';
 import { Check, Close } from '@material-ui/icons';
 import { Link, Redirect } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import { Alert } from '@material-ui/lab';
+
 import { FormCard, FormInput, FormButton, UserAvatar } from '../commons';
 import FormHeader from './FormHeader';
 import { sellerSignup } from '../../redux/actions';
@@ -14,23 +16,25 @@ import './SellerSignup.scss';
 class Company extends Component {
   state = {
     form: {
-      companyName: '',
-      companyWebsite: '',
-      certificatePath: '',
+      name: '',
+      website: '',
+      licenseNumber: '',
       companyPhysicalAddressDistrict: '',
       companyPhysicalAddressCell: '',
       contactPersonName: '',
-      contactPersonalID: '',
+      contactPersonNationalId: '',
       CopyOfID: '',
       tinNumber: '',
       companyEmail: '',
       companyPhysicalAddressProvince: '',
       companyPhysicalAddressSector: '',
-      companyPhysicalAddressVillage: '',
-      contactPersonalNumber: '',
+      companyVillageId: '',
+      contactPhone: '',
+      password: '',
       contactEmail: '',
       sellerType: 'COMPANY',
       status: 'PENDING',
+      contactPersonVillageId: 16,
     },
     errors: {},
     loading: false,
@@ -56,37 +60,47 @@ class Company extends Component {
   handleSubmit = () => {
     const { createSeller } = this.props;
     const { form } = this.state;
-    createSeller(form);
+    console.log('form', form);
+
+    const url = '/sellers/signup-company';
+    createSeller({ form, url });
   };
 
   UNSAFE_componentWillReceiveProps = (nextProps) => {
     const {
-      seller: { loading, message, payload },
+      seller: { loading, message, payload, errors },
     } = nextProps;
+    const alertMessage = toast.error(errors.message || message, {
+      closeOnClick: true,
+      pauseOnHover: true,
+    });
     this.setState({
       loading,
       message,
       payload,
     });
+    return alertMessage;
   };
 
   render() {
     const { handleClick, selected, form, loading, errors, message, payload } = this.state;
 
     return (
-      <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-        {Object.keys(errors).length || message ? (
-          <Alert severity="error">{message || errors.message}</Alert>
-        ) : (
-          ''
-        )}
+      <div
+        style={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <ToastContainer />
         {loading && (
           <Dimmer active inverted>
             <Loader inverted content="Loading" />
           </Dimmer>
         )}
-        <span>Company Application</span>
         <FormCard
+          title="Company Application"
           header={<FormHeader selected={selected} handleClick={handleClick} />}
           contents={
             <Form>
@@ -102,22 +116,22 @@ class Company extends Component {
               <div className="form-content">
                 <div className="form-input-container">
                   <FormInput
-                    name="companyName"
-                    value={form.companyName}
+                    name="name"
+                    value={form.name}
                     label="Company Name"
                     bordered
                     onChange={this.handleChange}
                   />
                   <FormInput
-                    name="companyWebsite"
-                    value={form.companyWebsite}
+                    name="website"
+                    value={form.website}
                     label="Company Website"
                     bordered
                     onChange={this.handleChange}
                   />
                   <FormInput
-                    name="certificatePath"
-                    value={form.certificatePath}
+                    name="licenseNumber"
+                    value={form.licenseNumber}
                     icon={<Icon name="attach" />}
                     label="Company Registration Certificate"
                     bordered
@@ -148,8 +162,8 @@ class Company extends Component {
                     onChange={this.handleChange}
                   />
                   <FormInput
-                    name="contactPersonalID"
-                    value={form.contactPersonalID}
+                    name="contactPersonNationalId"
+                    value={form.contactPersonNationalId}
                     icon="caret down"
                     label="Contact person national ID number"
                     bordered
@@ -197,16 +211,16 @@ class Company extends Component {
                     bordered
                   />
                   <FormInput
-                    name="companyPhysicalAddressVillage"
-                    value={form.companyPhysicalAddressVillage}
+                    name="companyVillageId"
+                    value={form.companyVillageId}
                     onChange={this.handleChange}
                     icon="caret down"
                     label="Company physical address Village"
                     bordered
                   />
                   <FormInput
-                    name="contactPersonalNumber"
-                    value={form.contactPersonalNumber}
+                    name="contactPhone"
+                    value={form.contactPhone}
                     onChange={this.handleChange}
                     label="Contact Person Number"
                     bordered
@@ -216,6 +230,14 @@ class Company extends Component {
                     value={form.contactEmail}
                     onChange={this.handleChange}
                     label="Contact Person Email"
+                    bordered
+                  />
+                  <FormInput
+                    name="password"
+                    type="password"
+                    value={form.password}
+                    onChange={this.handleChange}
+                    label="Password"
                     bordered
                   />
                 </div>

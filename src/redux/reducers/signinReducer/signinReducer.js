@@ -1,15 +1,11 @@
+import jwtDecoder from 'jwt-decode';
 import { signinActionsTypes } from '../../actionsTypes';
 
-const parseJwt = (token) => {
-  try {
-    return JSON.parse(atob(token.split('.')[1]));
-  } catch (e) {
-    return null;
-  }
-};
-
 export default (state, { type, payload }) => {
-  const userToken = parseJwt(payload && payload.accessToken);
+  let userToken;
+  let user = {};
+  let profile = {};
+  let orgID = 0;
   switch (type) {
     case signinActionsTypes.SIGNIN_START:
       return {
@@ -24,12 +20,18 @@ export default (state, { type, payload }) => {
         loading: false,
       };
     case signinActionsTypes.SIGNIN_SUCCESS:
+      userToken = jwtDecoder(payload.accessToken);
+      orgID = userToken.organizationId;
+      user = { ...userToken.user, orgID };
       localStorage.token = payload.accessToken;
       localStorage.isAuth = true;
+      localStorage.setItem('profile', JSON.stringify(user));
+      profile = JSON.parse(localStorage.getItem('profile'));
+
       return {
         ...state,
         isAuth: localStorage.isAuth,
-        profile: userToken.user,
+        profile,
         token: payload.token,
         loading: false,
       };
