@@ -4,6 +4,6 @@ export default {
   exact: true,
   name: 'Seller',
   protected: false,
-  path: '/seller/user_id/dashboard',
+  path: '/seller/dashboard',
   component: Seller,
 };

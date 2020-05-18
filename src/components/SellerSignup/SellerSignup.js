@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 import Container from '../../container';
 import { Header } from '../commons';
 import SellerSignupContainer from './SellerSignupContainer';
@@ -9,18 +10,21 @@ class SellerSignup extends Component {
   state = {
     name: 'individual',
     form: {
-      sellerType: '',
-      status: 'PENDING',
+      contactPersonName: '',
+      contactEmail: '',
+      contactPhone: '',
+      firstName: '',
+      gender: '',
+      lastName: '',
+      licenseNumber: '',
+      nationalId: '',
+      password: '',
+      villageId: 0,
     },
     errors: {},
     loading: false,
     message: '',
     payload: {},
-  };
-
-  componentDidMount = () => {
-    const { handleClick, selected } = this.props;
-    this.setState({ handleClick, selected });
   };
 
   handleClick = (name) => {
@@ -37,24 +41,26 @@ class SellerSignup extends Component {
     });
   };
 
-  handleSubmit = (sellerType) => {
+  handleSubmit = () => {
     const { createSeller } = this.props;
-    const { form } = this.state;
-    const formData = { ...form, sellerType };
-    console.log('form data =>>', formData);
-
-    createSeller(formData);
+    const { form, name } = this.state;
+    const url = `/sellers/signup-${name}`;
+    createSeller({ form, url });
   };
 
   UNSAFE_componentWillReceiveProps = (nextProps) => {
     const {
-      seller: { loading, message, payload },
+      seller: { loading, message, payload, errors },
     } = nextProps;
+
+    const alertMessage = toast.error(errors.message, { closeOnClick: true, pauseOnHover: true });
     this.setState({
       loading,
       message,
       payload,
+      errors,
     });
+    return alertMessage;
   };
 
   render() {

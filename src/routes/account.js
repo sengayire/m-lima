@@ -4,6 +4,6 @@ export default {
   exact: true,
   name: 'Account',
   protected: false,
-  path: '/user_id/account',
+  path: '/:id/user_account',
   component: Account,
 };

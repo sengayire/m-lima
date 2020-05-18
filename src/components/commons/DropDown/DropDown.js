@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Dropdown, Icon, Flag } from 'semantic-ui-react';
 
-const DropDown = ({ icon, isAuth }) => {
+const DropDown = ({ icon, isAuth, id }) => {
   const history = useHistory();
   const languageOption = [
     { icon: <Flag name="rwanda" />, text: 'Kinyarwanda' },
@@ -12,10 +12,10 @@ const DropDown = ({ icon, isAuth }) => {
   ];
 
   const userOptions = [
-    { text: <span>My orders</span>, redirect: '/userID/orders' },
+    { text: <span>My orders</span>, redirect: `/${id}/user_orders` },
     { text: <span>Messages(2)</span> },
     { text: <span>language - English</span> },
-    { text: <span>My account</span>, redirect: '/user_id/account' },
+    { text: <span>My account</span>, redirect: `/${id}/user_account` },
     { text: <span>Help</span> },
     { text: <span>Notifications (1)</span> },
     { text: <span>Market demand</span>, redirect: '/market_demand' },

@@ -1,12 +1,13 @@
 import { sellerActionsTypes } from '../actionsTypes';
 import { apiAction } from '../../helpers';
 
-export default (formData) => (dispatch) =>
+export default ({ form, url }) => (dispatch) =>
   dispatch(apiAction({
       method: 'post',
-      url: '/sellers',
+      httpRequest: { headers: { 'content-type': 'multipart/form-data' } },
+      url: `/marketplace/api${url}`,
       data: {
-        ...formData,
+        ...form,
       },
       onStart: sellerActionsTypes.SAVE_SELLER_START,
       onEnd: sellerActionsTypes.SAVE_SELLER_END,

@@ -4,7 +4,7 @@ import { apiAction } from '../../helpers';
 export default (formData) => (dispatch) =>
   dispatch(apiAction({
       method: 'post',
-      url: '/auth/signup',
+      url: '/core/api/auth/signup',
       data: {
         ...formData,
       },

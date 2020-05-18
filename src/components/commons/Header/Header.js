@@ -13,6 +13,7 @@ const Header = ({ isAuth, profile }) => (
       <DropDown
         isAuth={isAuth}
         icon={<UserAvatar userName={`${profile && `Hi! ${profile.name}`}`} />}
+        id={profile && profile.id}
       />
     </div>
   </div>
