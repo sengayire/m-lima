@@ -1,25 +1,25 @@
-import { productsActionsTypes } from '../../actionsTypes';
+import { sellerActionsTypes } from '../../actionsTypes';
 
 export default (state, { type, payload }) => {
   switch (type) {
-    case productsActionsTypes.CREATE_NEW_PRODUCT_START:
+    case sellerActionsTypes.GET_SELLER_PRODUCTS_START:
       return {
         ...state,
         message: '',
         loading: true,
         errors: {},
       };
-    case productsActionsTypes.CREATE_NEW_PRODUCT_END:
+    case sellerActionsTypes.GET_SELLER_PRODUCTS_END:
       return {
         ...state,
         loading: false,
       };
-    case productsActionsTypes.CREATE_NEW_PRODUCT_SUCCESS:
+    case sellerActionsTypes.GET_SELLER_PRODUCTS_SUCCESS:
       return {
         ...state,
-        payload,
+        products: payload.content,
       };
-    case productsActionsTypes.CREATE_NEW_PRODUCT_FAILURE:
+    case sellerActionsTypes.GET_SELLER_PRODUCTS_FAILURE:
       return {
         ...state,
         loading: false,

@@ -4,6 +4,7 @@ import * as sellerActionsTypes from './sellerActionsTypes';
 import * as activateAccountActionsTypes from './activateAccountActionsTypes';
 import * as signinActionsTypes from './signinActionsTypes';
 import * as productsActionsTypes from './productsActionsTypes';
+import * as locationAddresses from './locationAddresses';
 
 export {
   apiActionsTypes,
@@ -12,4 +13,5 @@ export {
   activateAccountActionsTypes,
   signinActionsTypes,
   productsActionsTypes,
+  locationAddresses,
 };

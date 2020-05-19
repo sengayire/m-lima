@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import 'react-toastify/dist/ReactToastify.css';
 import { connect } from 'react-redux';
-import { Form, Icon, Dimmer, Loader, Image, Segment } from 'semantic-ui-react';
+import { Form, Icon } from 'semantic-ui-react';
 import { Check, Close } from '@material-ui/icons';
 import { Link, Redirect } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import { Alert } from '@material-ui/lab';
-
 import { FormCard, FormInput, FormButton, UserAvatar } from '../commons';
 import FormHeader from './FormHeader';
-import { sellerSignup } from '../../redux/actions';
+import { sellerSignup, getProvinces, getDistricts, getSector, getCell } from '../../redux/actions';
 import './SellerSignup.scss';
 
 class Company extends Component {
@@ -19,35 +17,55 @@ class Company extends Component {
       name: '',
       website: '',
       licenseNumber: '',
-      companyPhysicalAddressDistrict: '',
-      companyPhysicalAddressCell: '',
+      district: '',
+      cell: '',
       contactPersonName: '',
       contactPersonNationalId: '',
       CopyOfID: '',
       tinNumber: '',
       companyEmail: '',
-      companyPhysicalAddressProvince: '',
-      companyPhysicalAddressSector: '',
-      companyVillageId: '',
+      province: '',
+      sector: '',
+      villageId: '',
       contactPhone: '',
       password: '',
       contactEmail: '',
       sellerType: 'COMPANY',
       status: 'PENDING',
-      contactPersonVillageId: 16,
+      contactPersonVillageId: '',
     },
     errors: {},
     loading: false,
     message: '',
     payload: {},
+    provinces: [],
+    districts: [],
+    sectors: [],
+    cells: [],
+    loading: false,
   };
 
   componentDidMount = () => {
-    const { handleClick, selected } = this.props;
+    const { handleClick, selected, allProvinces } = this.props;
     this.setState({ handleClick, selected });
+    allProvinces();
   };
 
-  handleChange = (e) => {
+  getLocations = (data, key) => {
+    const { allDistricts, allSector, allCells } = this.props;
+    if (data.name === 'province') {
+      return allDistricts(key);
+    }
+    if (data.name === 'district') {
+      return allSector(key);
+    }
+    if (data.name === 'sector') {
+      return allCells(key);
+    }
+  };
+
+  handleChange = (e, data) => {
+    const { key } = data.options.find((e) => e.value === data.value);
     const { form, errors } = this.state;
     this.setState({
       form: { ...form, [e.target.name]: e.target.value },
@@ -55,20 +73,24 @@ class Company extends Component {
       loading: false,
       message: '',
     });
+    return this.getLocations(data, key);
   };
 
   handleSubmit = () => {
     const { createSeller } = this.props;
     const { form } = this.state;
-    console.log('form', form);
-
     const url = '/sellers/signup-company';
     createSeller({ form, url });
   };
 
   UNSAFE_componentWillReceiveProps = (nextProps) => {
     const {
-      seller: { loading, message, payload, errors },
+      seller: { message, payload, errors },
+      provinces,
+      districts,
+      loading,
+      sectors,
+      cells,
     } = nextProps;
     const alertMessage = toast.error(errors.message || message, {
       closeOnClick: true,
@@ -78,12 +100,63 @@ class Company extends Component {
       loading,
       message,
       payload,
+      provinces,
+      districts,
+      sectors,
+      cells,
     });
     return alertMessage;
   };
 
   render() {
-    const { handleClick, selected, form, loading, errors, message, payload } = this.state;
+    const {
+      handleClick,
+      selected,
+      form,
+      loading,
+      payload,
+      provinces,
+      districts,
+      sectors,
+      cells,
+    } = this.state;
+    const options =
+      provinces &&
+      provinces.map((name) => {
+        return {
+          key: name.id,
+          text: name.name,
+          value: name.name,
+        };
+      });
+    const districtOptions =
+      districts &&
+      districts.map((name) => {
+        return {
+          key: name.id,
+          text: name.name,
+          value: name.name,
+        };
+      });
+    const sectorOpt =
+      sectors &&
+      sectors.map((name) => {
+        return {
+          key: name.id,
+          text: name.name,
+          value: name.name,
+        };
+      });
+
+    const cellsOpt =
+      cells &&
+      cells.map((name) => {
+        return {
+          key: name.id,
+          text: name.name,
+          value: name.name,
+        };
+      });
 
     return (
       <div
@@ -94,11 +167,6 @@ class Company extends Component {
         }}
       >
         <ToastContainer />
-        {loading && (
-          <Dimmer active inverted>
-            <Loader inverted content="Loading" />
-          </Dimmer>
-        )}
         <FormCard
           title="Company Application"
           header={<FormHeader selected={selected} handleClick={handleClick} />}
@@ -138,20 +206,25 @@ class Company extends Component {
                     onChange={this.handleChange}
                   />
                   <FormInput
-                    name="companyPhysicalAddress"
-                    value={form.companyPhysicalAddressDistrict}
+                    loading={loading}
+                    placeholder="Select District"
+                    name="district"
                     icon="caret down"
-                    label="Company Physical Address District"
+                    label="District"
                     bordered
                     onChange={this.handleChange}
+                    options={districtOptions}
+                    select
                   />
                   <FormInput
-                    name="companyPhysicalAddressCell"
-                    value={form.companyPhysicalAddressCell}
+                    loading={loading}
+                    options={cellsOpt}
+                    name="cell"
                     icon="caret down"
-                    label="Company Physical Address Cell"
+                    label="Cell"
                     bordered
                     onChange={this.handleChange}
+                    select
                   />
                   <FormInput
                     name="contactPersonName"
@@ -194,29 +267,35 @@ class Company extends Component {
                     bordered
                   />
                   <FormInput
-                    name="companyPhysicalAddressProvince"
-                    companyPhysicalAddressProvince
-                    value={form.companyPhysicalAddressProvince}
+                    loading={loading}
+                    options={options}
+                    name="province"
                     onChange={this.handleChange}
                     icon="caret down"
-                    label="Company Physical address Province"
+                    label="Province"
                     bordered
+                    placeholder="Select Province"
+                    select
                   />
                   <FormInput
-                    name="companyPhysicalAddressSector"
-                    value={form.companyPhysicalAddressSector}
+                    loading={loading}
+                    options={sectorOpt}
+                    name="sector"
                     onChange={this.handleChange}
                     icon="caret down"
-                    label="Company Physical Address Sector"
+                    label="Sector"
                     bordered
+                    select
                   />
                   <FormInput
-                    name="companyVillageId"
-                    value={form.companyVillageId}
+                    loading={loading}
+                    // options={options}
+                    name="village"
                     onChange={this.handleChange}
                     icon="caret down"
-                    label="Company physical address Village"
+                    label="Village"
                     bordered
+                    select
                   />
                   <FormInput
                     name="contactPhone"
@@ -274,12 +353,24 @@ class Company extends Component {
   }
 }
 
-const mapStateToProps = ({ seller }) => ({
+const mapStateToProps = ({
   seller,
+  locationAddresses: { provinces, provinceDistricts, sectors, loading, cell },
+}) => ({
+  seller,
+  provinces,
+  districts: provinceDistricts,
+  loading,
+  sectors,
+  cell,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   createSeller: (payload) => dispatch(sellerSignup(payload)),
+  allProvinces: (payload) => dispatch(getProvinces(payload)),
+  allDistricts: (payload) => dispatch(getDistricts(payload)),
+  allSector: (payload) => dispatch(getSector(payload)),
+  allCells: (payload) => dispatch(getCell(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Company);

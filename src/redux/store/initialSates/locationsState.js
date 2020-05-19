@@ -1,5 +1,8 @@
 module.exports = {
-  products: [],
+  provinces: [],
+  provinceDistricts: [],
+  sectors: [],
+  cell: [],
   message: '',
   errors: '',
   loading: false,

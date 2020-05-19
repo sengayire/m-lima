@@ -54,8 +54,6 @@ class NewProduct extends Component {
 
   render() {
     const { loading } = this.state;
-    console.log('loading', loading);
-
     return (
       <div className="new-product-container">
         {loading && (

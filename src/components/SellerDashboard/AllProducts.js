@@ -52,17 +52,20 @@ const createData = (
   action,
 });
 
-const AllProducts = ({ handleClick }) => {
-  const rows = [
-    createData(
-      'India',
-      'IN',
-      1324171354,
-      3287263,
-      <ItemStatus status="delivered" color="white" bg="#05c46b" />,
-      <Actions handleClick={handleClick} />,
-    ),
-  ];
+const AllProducts = ({ handleClick, products, loading }) => {
+  let rows = [];
+  if (products) {
+    rows = products.map(({ name, description }) =>
+      createData(
+        'India',
+        name,
+        1324171354,
+        description,
+        <ItemStatus status="delivered" color="white" bg="#05c46b" />,
+        <Actions handleClick={handleClick} />,
+      ),);
+  }
+
   return (
     <div>
       <div className="seller-dashboard-header">
@@ -81,7 +84,7 @@ const AllProducts = ({ handleClick }) => {
           </Button>
         </div>
       </div>
-      <ItemsTable columns={columns} rows={rows} />
+      <ItemsTable loading={loading} columns={columns} rows={rows} />
     </div>
   );
 };

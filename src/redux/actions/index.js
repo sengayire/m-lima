@@ -5,6 +5,11 @@ import activateAccount from './activateAccount';
 import signin from './signin';
 import newProduct from './newProduct';
 import editSellerInfo from './editSellerInfo';
+import sellerProducts from './sellerProducts';
+import getProvinces from './getProvinces';
+import getDistricts from './getDistricts';
+import getSector from './getSector';
+import getCell from './getCell';
 
 export {
   saveBuyer,
@@ -14,4 +19,9 @@ export {
   signin,
   newProduct,
   editSellerInfo,
+  sellerProducts,
+  getProvinces,
+  getDistricts,
+  getSector,
+  getCell,
 };
