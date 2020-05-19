@@ -1,16 +1,34 @@
 import React from 'react';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Popup } from 'semantic-ui-react';
 import './SellerDashboard.scss';
 
-const Actions = ({ type, handleClick }) => (
+const Actions = ({ type, handleClick, id }) => (
   <div>
     {(type === 'order' && <div>Update status</div>) || (
       <div className="actions-buttons-container">
         <div className="action-button-edit">
-          <Icon onClick={() => handleClick('edit')} name="pencil" className="edit-icon" />
+          <Popup
+            trigger={
+              <Icon onClick={() => handleClick('edit', id)} name="pencil" className="edit-icon" />
+            }
+            content="Edit"
+            position="top left"
+            size="mini"
+          />
         </div>
         <div className="action-button-delete">
-          <Icon onClick={() => handleClick('delete')} name="trash" className="delete-icon" />
+          <Popup
+            trigger={
+              <Icon
+                onClick={() => handleClick('delete', id)}
+                name="trash"
+                className="delete-icon"
+              />
+            }
+            content="delete"
+            position="top left"
+            size="mini"
+          />
         </div>
       </div>
     )}

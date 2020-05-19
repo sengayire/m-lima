@@ -5,11 +5,19 @@ import Container from '../../container';
 import Contents from '../Contents';
 import { Header, ItemCard } from '../commons';
 import ItemsContainer from '../ItemsContainer';
+import { getAllProducts } from '../../redux/actions';
 
 class Home extends Component {
   state = {
     isAuth: false,
     profile: {},
+    products: [],
+    loading: false,
+  };
+
+  UNSAFE_componentWillMount = () => {
+    const { getAllProducts } = this.props;
+    getAllProducts();
   };
 
   componentDidMount = () => {
@@ -24,7 +32,8 @@ class Home extends Component {
 
   UNSAFE_componentWillReceiveProps = (nextProps) => {
     const {
-      login: { loading, isAuth, message, errors, profile },
+      login: { isAuth, message, errors, profile },
+      allProducts: { loading, products },
     } = nextProps;
 
     this.setState({
@@ -33,24 +42,33 @@ class Home extends Component {
       message,
       errors,
       profile,
+      products,
     });
   };
 
   render() {
-    const { profile, isAuth } = this.state;
+    const { profile, loading, isAuth, products } = this.state;
     return (
       <LazyLoad>
         <Container
           header={<Header profile={profile} isAuth={isAuth} />}
-          content={<Contents isAuth={isAuth} contents={<ItemsContainer items={<ItemCard />} />} />}
+          content={
+            <Contents
+              isAuth={isAuth}
+              contents={
+                <ItemsContainer items={<ItemCard loading={loading} products={products} />} />
+              }
+            />
+          }
         />
       </LazyLoad>
     );
   }
 }
 
-const mapStateToProps = ({ signin }) => ({
+const mapStateToProps = ({ signin, allProducts }) => ({
   login: signin,
+  allProducts,
 });
 
-export default connect(mapStateToProps, null)(Home);
+export default connect(mapStateToProps, { getAllProducts })(Home);

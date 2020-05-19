@@ -3,6 +3,7 @@ const activateAccount = require('./initialSates/activateAccount');
 const signin = require('./initialSates/signinState');
 const seller = require('./initialSates/sellerState');
 const locationsState = require('./initialSates/locationsState');
+const products = require('./initialSates/allProducts');
 
 module.exports = {
   buyers,
@@ -10,4 +11,5 @@ module.exports = {
   signin,
   seller,
   locationsState,
+  products,
 };
