@@ -8,17 +8,16 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import './ItemsTable.scss';
+import { Loader, Dimmer } from 'semantic-ui-react';
 
-const StickyHeadTable = ({ columns, rows }) => {
+const StickyHeadTable = ({ columns, rows, loading }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  // document.getElementsByClassName('MuiTablePagination-caption')[0].innerHTML = 'prince';
-
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
-    // console.log('the doc', docs[0].innerHTML);
   };
+  console.log('rows ==>', rows);
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
@@ -26,10 +25,10 @@ const StickyHeadTable = ({ columns, rows }) => {
   };
 
   return (
-    <Paper className='items-table-container'>
-      <TableContainer className='table-container'>
+    <Paper className="items-table-container">
+      <TableContainer className="table-container">
         <Table>
-          <TableHead className='table-header'>
+          <TableHead className="table-header">
             <TableRow>
               {columns.map((column) => (
                 <TableCell
@@ -42,24 +41,29 @@ const StickyHeadTable = ({ columns, rows }) => {
               ))}
             </TableRow>
           </TableHead>
+          {loading && (
+            <Dimmer style={{ background: 'red', width: '100%' }}>
+              <Loader active inline="centered" />
+            </Dimmer>
+          )}
           <TableBody>
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                  {columns.map((column) => {
-                    const value = row[column.id];
-                    return (
-                      <TableCell key={column.id} align={column.align}>
-                        {column.format && typeof value === 'number' ? column.format(value) : value}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
+              <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                {columns.map((column) => {
+                  const value = row[column.id];
+                  return (
+                    <TableCell key={column.id} align={column.align}>
+                      {column.format && typeof value === 'number' ? column.format(value) : value}
+                    </TableCell>
+                  );
+                })}
+              </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
       <TablePagination
-      className='table-pagination'
+        className="table-pagination"
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
         count={rows.length}

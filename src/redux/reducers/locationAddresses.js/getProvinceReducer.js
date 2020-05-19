@@ -1,25 +1,25 @@
-import { productsActionsTypes } from '../../actionsTypes';
+import { locationAddresses } from '../../actionsTypes';
 
 export default (state, { type, payload }) => {
   switch (type) {
-    case productsActionsTypes.CREATE_NEW_PRODUCT_START:
+    case locationAddresses.GET_PROVINCE_START:
       return {
         ...state,
         message: '',
         loading: true,
         errors: {},
       };
-    case productsActionsTypes.CREATE_NEW_PRODUCT_END:
+    case locationAddresses.GET_PROVINCE_END:
       return {
         ...state,
         loading: false,
       };
-    case productsActionsTypes.CREATE_NEW_PRODUCT_SUCCESS:
+    case locationAddresses.GET_PROVINCE_SUCCESS:
       return {
         ...state,
-        payload,
+        provinces: payload.content,
       };
-    case productsActionsTypes.CREATE_NEW_PRODUCT_FAILURE:
+    case locationAddresses.GET_PROVINCE_FAILURE:
       return {
         ...state,
         loading: false,

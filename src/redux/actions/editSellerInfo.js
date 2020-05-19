@@ -2,8 +2,7 @@ import { sellerActionsTypes } from '../actionsTypes';
 import { apiAction } from '../../helpers';
 
 export default ({ form, url }) => (dispatch) =>
-  dispatch(
-    apiAction({
+  dispatch(apiAction({
       method: 'put',
       url: `marketplace/api/sellers${url}/26`,
       data: {
@@ -13,6 +12,4 @@ export default ({ form, url }) => (dispatch) =>
       onEnd: sellerActionsTypes.EDIT_SELLER_END,
       onSuccess: sellerActionsTypes.EDIT_SELLER_SUCCESS,
       onFailure: sellerActionsTypes.EDIT_SELLER_FAILURE,
-    }),
-    console.log('here in action', form, url),
-  );
+    }),);
