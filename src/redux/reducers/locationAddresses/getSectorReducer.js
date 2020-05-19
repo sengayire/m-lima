@@ -1,8 +1,6 @@
 import { locationAddresses } from '../../actionsTypes';
 
 export default (state, { type, payload }) => {
-  console.log('payload ===>>>', payload);
-
   switch (type) {
     case locationAddresses.GET_SECTORS_START:
       return {

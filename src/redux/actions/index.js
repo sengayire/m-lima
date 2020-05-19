@@ -10,6 +10,8 @@ import getProvinces from './getProvinces';
 import getDistricts from './getDistricts';
 import getSector from './getSector';
 import getCell from './getCell';
+import deleteProduct from './deleteProduct';
+import getAllProducts from './getAllProducts';
 
 export {
   saveBuyer,
@@ -24,4 +26,6 @@ export {
   getDistricts,
   getSector,
   getCell,
+  deleteProduct,
+  getAllProducts,
 };

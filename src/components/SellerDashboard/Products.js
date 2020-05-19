@@ -3,7 +3,7 @@ import './SellerDashboard.scss';
 import { connect } from 'react-redux';
 import AllProducts from './AllProducts';
 import NewProduct from './NewProduct';
-import { sellerProducts } from '../../redux/actions';
+import { sellerProducts, deleteProduct } from '../../redux/actions';
 
 class Products extends Component {
   state = { loading: false };
@@ -21,13 +21,16 @@ class Products extends Component {
     this.setState({ products, loading });
   }
 
-  handleClick = (e) => {
+  handleClick = (e, id) => {
+    const { removeProduct } = this.props;
+    if (e === 'delete') {
+      removeProduct(id);
+    }
     this.setState({ action: e });
   };
 
   render() {
     const { action, products, loading } = this.state;
-    console.log('loading products', loading);
 
     return (
       <div className="seller-dashboard-container">
@@ -49,6 +52,7 @@ const mapStateToProps = ({ signin: { profile }, seller: { products, loading } })
 
 const mapDispatchToProps = (dispatch) => ({
   allProducts: (payload) => dispatch(sellerProducts(payload)),
+  removeProduct: (payload) => dispatch(deleteProduct(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

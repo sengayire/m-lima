@@ -55,15 +55,16 @@ const createData = (
 const AllProducts = ({ handleClick, products, loading }) => {
   let rows = [];
   if (products) {
-    rows = products.map(({ name, description }) =>
+    rows = products.map(({ name, description, id }) =>
       createData(
-        'India',
+        '#0000',
         name,
         1324171354,
         description,
         <ItemStatus status="delivered" color="white" bg="#05c46b" />,
-        <Actions handleClick={handleClick} />,
-      ),);
+        <Actions id={id} handleClick={handleClick} />,
+      ),
+    );
   }
 
   return (
