@@ -27,7 +27,6 @@ export default (state, { type, payload }) => {
       localStorage.isAuth = true;
       localStorage.setItem('profile', JSON.stringify(user));
       profile = JSON.parse(localStorage.getItem('profile'));
-
       return {
         ...state,
         isAuth: localStorage.isAuth,

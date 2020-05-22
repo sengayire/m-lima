@@ -1,9 +1,12 @@
 import React from 'react';
 import OrderedItemCard from './OrderedItemCard';
 
-const Delivery = () => (
+const Delivery = ({ items }) => (
   <div>
-    <OrderedItemCard />
+    <div>
+      <h1>Delivered orders</h1>
+    </div>
+    <OrderedItemCard items={items} />
   </div>
 );
 

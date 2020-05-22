@@ -1,25 +1,27 @@
-import { productsActionsTypes } from '../../actionsTypes';
+import { getShoppingCartItems } from '../../actionsTypes';
 
 export default (state, { type, payload }) => {
+  console.log('payload start', payload);
+
   switch (type) {
-    case productsActionsTypes.DELETE_PRODUCT_START:
+    case getShoppingCartItems.GET_SHOPPING_CART_ITEMS_START:
       return {
         ...state,
         message: '',
         loading: true,
         errors: {},
       };
-    case productsActionsTypes.DELETE_PRODUCT_END:
+    case getShoppingCartItems.GET_SHOPPING_CART_ITEMS_END:
       return {
         ...state,
         loading: false,
       };
-    case productsActionsTypes.DELETE_PRODUCT_SUCCESS:
+    case getShoppingCartItems.GET_SHOPPING_CART_ITEMS_SUCCESS:
       return {
         ...state,
-        payload,
+        items: payload,
       };
-    case productsActionsTypes.DELETE_PRODUCT_FAILURE:
+    case getShoppingCartItems.GET_SHOPPING_CART_ITEMS_FAILURE:
       return {
         ...state,
         loading: false,

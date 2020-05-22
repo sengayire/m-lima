@@ -1,15 +1,19 @@
-.dashboard-container{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    margin-top: 5px;
-    .board-content{
-        display: flex;
-        height: 100%;
-        width: 85%;
-        background: white;
-    }
-            .side-bar-container{
-              width: 15%;
-            }
+.dashboard-container {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	margin-top: 5px;
+	background: red;
+	.board-content {
+		display: flex;
+		height: 100%;
+		width: 85%;
+		background: white;
+		div {
+			width: 90%;
+		}
+	}
+	.side-bar-container {
+		width: 15%;
+	}
 }

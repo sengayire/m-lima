@@ -12,7 +12,10 @@ export default (data = {}) => {
     URL ||
     (reactUrl && `${reactUrl}/mlimaplatform`) ||
     (defaultUrl && `${defaultUrl}/mlimaplatform`);
-  const headers = { 'access-token': token || localStorage.token || undefined };
+  const headers = {
+    'access-token': token || localStorage.token || undefined,
+    Authorization: `Bearer ${localStorage.token || undefined}`,
+  };
 
   return (NODE_ENV === 'test' && axios) || axios.create({ baseURL, headers });
 };

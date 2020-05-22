@@ -1,5 +1,4 @@
 import React from 'react';
-// import { AllOrders } from '../UserOrders';
 
 const BoardContent = ({ cases }) => {
   const manageActiveItem = (cases) => cases;
