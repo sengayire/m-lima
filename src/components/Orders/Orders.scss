@@ -1,112 +1,111 @@
-.all-orders-container{
-    width: 85%;
-    margin: 5px 10px 5px 10px;
-    display: flex;
-    flex-direction: column;
-    .all-orders-header{
-        background: #ededed;
-        height: 7%;
-        padding: 0 40px 0 20px;
-        border-radius: 2px;
-        .all-orders-header-nav{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100%;
-            font-weight: bold;
-        }
-        
-    }
-    .orders-items-description{
-        height: 93%;
-        margin-top: 40px;
-        width: 100%;
-         .order-items-title{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 10% 0 20px;
-            border-radius: 2px;
-            font-weight: bold;
-            background: #ededed;
-            height: 7%;
-            width: 100%;
-            
-        }
-        .order-item-info{
-            background: #ededed;
-            display: flex;
-            flex-direction: column;
-            // justify-content: space-between;
-            padding: 0 10px 0 20px;
-            border-radius: 2px;
-            height: 30%;
-            margin-top: 5px;
-            width: 100%;
-            .order-info-body{
-                 display: flex;
-                 margin-bottom: 1%;
-                .order-info{
-                  display: flex;
-                  margin-top: 10px;
-                  width: 40%;
-                  justify-content: space-between;
-                  .order-id-time{
-                      display: flex;
-                      flex-direction: column;
-                    }
-                    .seller-info-contact{
-                    display: flex;
-                    flex-direction: column;
-                  }
-                }
-                .order-delivery-price{
-                    width: 60%;
-                    .delivery-return{
-                        display: flex;
-                        justify-content: space-between;
-                        margin-left: 30%;
-                        height: 100%;
-                        align-items: flex-end;
-                        .order-price{
-                            display: flex;
-                            justify-content: space-evenly;
-                            width: 35%;
-
-                        }
-
-                    }
-                }
-            }
-            .item-image-description{
-                display: flex;
-                width: 60;
-                position: relative;
-                .item-image-container{
-                    width: 10%;
-                    background: transparent !important;
-                    border: 0px solid;
-                    .item-image{
-                        position: absolute;
-                    }
-                    .item-image{
-                      border-radius: 10px;
-                    }
-                }
-            }
-            .item-description{
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                width: 50%;
-                height: 90%;
-                margin-left: 1%;
-            }
-            .item-type-quantity{
-                display: flex;
-                flex-direction: column;
-                margin-top: 1%;
-            }
-            }
-    }
+.all-orders-container {
+	width: 85%;
+	margin: 5px 10px 5px 10px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	.all-orders-header {
+		background: #ededed;
+		height: 7%;
+		padding: 0 40px 0 20px;
+		border-radius: 2px;
+		.all-orders-header-nav {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 100%;
+			font-weight: bold;
+		}
+	}
+	.orders-items-description {
+		height: 93%;
+		margin-top: 40px;
+		width: 100%;
+		.order-items-title {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 10% 0 20px;
+			border-radius: 2px;
+			font-weight: bold;
+			background: #ededed;
+			height: 7%;
+			width: 100%;
+		}
+		.order-item-info {
+			background: #ededed;
+			display: flex;
+			flex-direction: column;
+			padding: 0 10px 0 20px;
+			border-radius: 2px;
+			height: 30%;
+			margin-top: 5px;
+			width: 100%;
+			.order-info-body {
+				display: flex;
+				margin-bottom: 1%;
+				.order-info {
+					display: flex;
+					margin-top: 10px;
+					width: 40%;
+					justify-content: space-between;
+					.order-id-time {
+						display: flex;
+						flex-direction: column;
+					}
+					.seller-info-contact {
+						display: flex;
+						flex-direction: column;
+					}
+				}
+				.order-delivery-price {
+					width: 60%;
+					.delivery-return {
+						display: flex;
+						justify-content: space-between;
+						margin-left: 30%;
+						height: 100%;
+						align-items: flex-end;
+						.order-price {
+							display: flex;
+							justify-content: space-evenly;
+							width: 35%;
+							button {
+								background: transparent;
+							}
+						}
+					}
+				}
+			}
+			.item-image-description {
+				display: flex;
+				width: 60;
+				position: relative;
+				.item-image-container {
+					width: 10%;
+					background: transparent !important;
+					border: 0px solid;
+					.item-image {
+						position: absolute;
+					}
+					.item-image {
+						border-radius: 10px;
+					}
+				}
+			}
+			.item-description {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				width: 50%;
+				height: 90%;
+				margin-left: 1%;
+			}
+			.item-type-quantity {
+				display: flex;
+				flex-direction: column;
+				margin-top: 1%;
+			}
+		}
+	}
 }

@@ -1,25 +1,26 @@
-import { productsActionsTypes } from '../../actionsTypes';
+import { ordersActionsTypes } from '../../actionsTypes';
 
 export default (state, { type, payload }) => {
   switch (type) {
-    case productsActionsTypes.DELETE_PRODUCT_START:
+    case ordersActionsTypes.GET_ALL_ORDERS_START:
       return {
         ...state,
         message: '',
         loading: true,
         errors: {},
       };
-    case productsActionsTypes.DELETE_PRODUCT_END:
+    case ordersActionsTypes.GET_ALL_ORDERS_END:
       return {
         ...state,
         loading: false,
       };
-    case productsActionsTypes.DELETE_PRODUCT_SUCCESS:
+    case ordersActionsTypes.GET_ALL_ORDERS_SUCCESS:
       return {
         ...state,
-        payload,
+        items: payload.data.result,
+        loading: false,
       };
-    case productsActionsTypes.DELETE_PRODUCT_FAILURE:
+    case ordersActionsTypes.GET_ALL_ORDERS_FAILURE:
       return {
         ...state,
         loading: false,

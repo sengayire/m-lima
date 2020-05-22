@@ -12,6 +12,11 @@ import getSector from './getSector';
 import getCell from './getCell';
 import deleteProduct from './deleteProduct';
 import getAllProducts from './getAllProducts';
+import addToCart from './addToCart';
+import shoppingCartItems from './shoppingCartItems';
+import getAllOrders from './getAllOrders';
+import getSellerOrders from './getSellerOrders';
+import deleteOrder from './deleteOrder';
 
 export {
   saveBuyer,
@@ -28,4 +33,9 @@ export {
   getCell,
   deleteProduct,
   getAllProducts,
+  addToCart,
+  shoppingCartItems,
+  getAllOrders,
+  getSellerOrders,
+  deleteOrder,
 };

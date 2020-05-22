@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, Popup, Form, Input, Dimmer, Loader } from 'semantic-ui-react';
 import { Alert } from '@material-ui/lab';
 import FormInput from '../commons/FormInput';
 import { signin } from '../../redux/actions';
 import './Signin.scss';
-import { Redirect } from 'react-router-dom';
 
 class Signin extends Component {
   state = {

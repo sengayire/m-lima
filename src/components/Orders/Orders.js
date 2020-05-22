@@ -8,12 +8,14 @@ import AwaitingShipping from './AwaitingShipping';
 import AwaitingDelivery from './AwaitingDelivery';
 import AwaitingPayment from './AwaitingPayment';
 import Delivery from './Delivery';
+import { getAllOrders, deleteOrder } from '../../redux/actions';
 
 class Orders extends Component {
   state = {
     isAuth: false,
     loading: false,
     profile: {},
+    items: {},
   };
 
   ordersMenuItems = [
@@ -27,32 +29,44 @@ class Orders extends Component {
   componentDidMount() {
     const {
       login: { loading, isAuth, profile },
+      getAllOrders,
     } = this.props;
-    console.log('mounted', isAuth, profile);
-
     this.setState({ loading, isAuth, profile });
+    getAllOrders(profile.id);
   }
 
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    const { items } = nextProps;
+    this.setState({ items: items[0] });
+  }
+
+  handleClick = (e, action, id) => {
+    if (action === 'delete') {
+      const { deleteOrder } = this.props;
+      deleteOrder(id);
+    }
+  };
+
   manageMenu = (activeItem) => {
+    const { items, loading } = this.state;
     switch (activeItem) {
       case 'all orders':
-        return <AllOrders />;
+        return <AllOrders items={items} />;
       case 'awaiting shipment':
-        return <AwaitingShipping />;
+        return <AwaitingShipping items={items} />;
       case 'awaiting delivery':
-        return <AwaitingDelivery />;
+        return <AwaitingDelivery items={items} />;
       case 'awaiting payment':
-        return <AwaitingPayment />;
+        return <AwaitingPayment items={items} />;
       case 'delivery':
-        return <Delivery />;
+        return <Delivery items={items} />;
       default:
-        return <AllOrders />;
+        return <AllOrders loading={loading} handleClick={this.handleClick} items={items} />;
     }
   };
 
   render() {
-    const { loading, isAuth, profile } = this.state;
-    console.log('props', isAuth, profile);
+    const { isAuth, profile } = this.state;
     return (
       <Container
         header={<Header isAuth={isAuth} profile={profile} />}
@@ -63,12 +77,9 @@ class Orders extends Component {
     );
   }
 }
-const mapStateToProps = ({ signin }) => ({
+const mapStateToProps = ({ signin, orders: { items } }) => ({
   login: signin,
+  items,
 });
 
-// const mapDispatchToProps = (dispatch) => ({
-//   activeLogin: (payload) => dispatch(signin(payload)),
-// });
-
-export default connect(mapStateToProps, null)(Orders);
+export default connect(mapStateToProps, { getAllOrders, deleteOrder })(Orders);

@@ -53,14 +53,12 @@ class SellerSignup extends Component {
       seller: { loading, message, payload, errors },
     } = nextProps;
 
-    const alertMessage = toast.error(errors.message, { closeOnClick: true, pauseOnHover: true });
     this.setState({
       loading,
       message,
       payload,
       errors,
     });
-    return alertMessage;
   };
 
   render() {

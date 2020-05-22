@@ -1,78 +1,98 @@
 import React from 'react';
 import './Orders.scss';
-import { Image, Card } from 'semantic-ui-react';
+import { Image, Card, Loader, Dimmer, Button } from 'semantic-ui-react';
 import { DeleteSweep } from '@material-ui/icons';
 
 const PLACEHOLDER_IMAGE = 'https://react.semantic-ui.com/images/wireframe/image.png';
 
-const AllOrders = () => (
-  <div className="all-orders-container">
-    <h1>My Orders</h1>
-    <div className="all-orders-header">
-      <div className="all-orders-header-nav">
-        <span>All orders (3)</span>
-        <span>Awaiting shipment (1)</span>
-        <span>Awaiting delivery (1)</span>
-        <span>Delivery (1)</span>
-        <span>Awaiting payment (0)</span>
-      </div>
-    </div>
-    <div className="orders-items-description">
-      <div className="order-items-title">
-        <span>Item</span>
-        <span>Sort by</span>
-        <span>Status</span>
-        <span>Price</span>
-      </div>
-      <div className="order-item-info">
-        <div className="order-info-body">
-          <div className="order-info">
-            <div className="order-id-time">
-              <span>Order Id: XXXXXXX</span>
-              <span>Order time: dd-mm-yy hh:mm</span>
-            </div>
-            <div className="seller-info-contact">
-              <span>Seller: XXXXXXX</span>
-              <span>Contact seller</span>
-            </div>
-          </div>
-          <div className="order-delivery-price">
-            <div className="delivery-return">
-              <div>
-                <span>Delivered</span>
-              </div>
-              <div>
-                <span>return</span>
-              </div>
-              <div className="order-price">
-                <span>Frw 3, 000</span>
-                <DeleteSweep />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="item-image-description">
-          <Card className="item-image-container">
-            <Image src={PLACEHOLDER_IMAGE} />
-          </Card>
-          <div className="item-description">
-            <div>
-              <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde eum iure qui quo,
-                laboriosam sint numquam esse at placet architecto perferendis officiis earum? Iste
-                recusandae sit ratione. Larum, libero aspernatur?
-              </span>
-            </div>
-            <div className="item-type-quantity">
-              <span>Type:red beans</span>
-              <span>Quantity: 3 kg</span>
-            </div>
-          </div>
+const AllOrders = ({ items, handleClick, loading }) => {
+  const total = items && items.getTotalItems;
+  const orders = items && items.orderDetails;
+
+  return (
+    <div className="all-orders-container">
+      <h1>My Orders</h1>
+      <div className="all-orders-header">
+        <div className="all-orders-header-nav">
+          <span>All orders ({total})</span>
+          <span>Awaiting shipment (1)</span>
+          <span>Awaiting delivery (1)</span>
+          <span>Delivery (1)</span>
+          <span>Awaiting payment (0)</span>
         </div>
       </div>
+      <div className="orders-items-description">
+        <div className="order-items-title">
+          <span>Item</span>
+          <span>Sort by</span>
+          <span>Status</span>
+          <span>Price</span>
+        </div>
+        {(orders &&
+          orders.map((order) => {
+            return (
+              <div className="order-item-info">
+                <div className="order-info-body">
+                  <div className="order-info">
+                    <div className="order-id-time">
+                      <span>Order Id: XXXXXXX</span>
+                      <span>Order time: dd-mm-yy hh:mm</span>
+                    </div>
+                    <div className="seller-info-contact">
+                      <span>Seller: XXXXXXX</span>
+                      <span>Contact seller</span>
+                    </div>
+                  </div>
+                  <div className="order-delivery-price">
+                    <div className="delivery-return">
+                      <div>
+                        <span>Delivered</span>
+                      </div>
+                      <div>
+                        <span>return</span>
+                      </div>
+                      <div className="order-price">
+                        <span>Frw 3, 000</span>
+                        <Button
+                          name="delete"
+                          onClick={(e) => handleClick(e, 'delete', order.orderInfo)}
+                        >
+                          <DeleteSweep />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="item-image-description">
+                  <Card className="item-image-container">
+                    <Image src={PLACEHOLDER_IMAGE} />
+                  </Card>
+                  <div className="item-description">
+                    <div>
+                      <span>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde eum iure qui
+                        quo, laboriosam sint numquam esse at placet architecto perferendis officiis
+                        earum? Iste recusandae sit ratione. Larum, libero aspernatur?
+                      </span>
+                    </div>
+                    <div className="item-type-quantity">
+                      <span>Type:red beans</span>
+                      <span>Quantity: 3 kg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })) ||
+          (loading && (
+            <Dimmer active>
+              <Loader content="Loading" />
+            </Dimmer>
+          ))}
+      </div>
+      <div />
     </div>
-    <div />
-  </div>
-);
+  );
+};
 
 export default AllOrders;

@@ -92,10 +92,7 @@ class Company extends Component {
       sectors,
       cells,
     } = nextProps;
-    const alertMessage = toast.error(errors.message || message, {
-      closeOnClick: true,
-      pauseOnHover: true,
-    });
+
     this.setState({
       loading,
       message,
@@ -105,7 +102,6 @@ class Company extends Component {
       sectors,
       cells,
     });
-    return alertMessage;
   };
 
   render() {

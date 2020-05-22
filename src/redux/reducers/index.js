@@ -4,6 +4,9 @@ import activateAccount from './activateAccount';
 import signin from './signinReducer';
 import locationAddresses from './locationAddresses';
 import allProducts from './allProducts';
+import addToCart from './addToCart';
+import shoppingCartItems from './shoppingCartItems';
+import orders from './ordersReducer';
 
 export default {
   buyers,
@@ -12,4 +15,7 @@ export default {
   signin,
   locationAddresses,
   allProducts,
+  addToCart,
+  shoppingCartItems,
+  orders,
 };

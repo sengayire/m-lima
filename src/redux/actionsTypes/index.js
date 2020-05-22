@@ -5,6 +5,9 @@ import * as activateAccountActionsTypes from './activateAccountActionsTypes';
 import * as signinActionsTypes from './signinActionsTypes';
 import * as productsActionsTypes from './productsActionsTypes';
 import * as locationAddresses from './locationAddresses';
+import * as addToCartActionsTypes from './addToCartActionsTypes';
+import * as getShoppingCartItems from './getShoppingCartItems';
+import * as ordersActionsTypes from './ordersActionsTypes';
 
 export {
   apiActionsTypes,
@@ -14,4 +17,7 @@ export {
   signinActionsTypes,
   productsActionsTypes,
   locationAddresses,
+  addToCartActionsTypes,
+  getShoppingCartItems,
+  ordersActionsTypes,
 };
