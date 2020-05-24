@@ -12,9 +12,6 @@ const PLACEHOLDER_IMAGE = 'https://react.semantic-ui.com/images/wireframe/image.
 
 const ItemDescription = ({ product, handleClick, loading }) => {
   const { description, discountPercantage, measurementUnit, productCategory, unitPrice } = product;
-
-  console.log('in item', loading);
-
   return (
     <div className="item-description-container">
       <div className="item-description">
@@ -24,7 +21,6 @@ const ItemDescription = ({ product, handleClick, loading }) => {
         <span>{description}</span>
         <div className="item-info">
           <span>
-            {' '}
             <Rating
               name="customized-empty"
               defaultValue={2}
@@ -52,7 +48,7 @@ const ItemDescription = ({ product, handleClick, loading }) => {
         </div>
         <div className="item-types-images">
           <span>
-            <Image size="tiny" src={PLACEHOLDER_IMAGE} />
+            <Image size="large" src={PLACEHOLDER_IMAGE} />
           </span>
           <span>
             <Image size="tiny" src={PLACEHOLDER_IMAGE} />
@@ -85,7 +81,14 @@ const ItemDescription = ({ product, handleClick, loading }) => {
       </div>
       <div className="item-description-btn">
         <span className="buy-iem-btn">
-          <ManageModals triggerModal={<Button primary> Buy now</Button>} />
+          <ManageModals
+            triggerModal={
+              <Button id="buyItem" onClick={(e) => handleClick(e)} primary>
+                {' '}
+                Buy now
+              </Button>
+            }
+          />
         </span>
         <span className="add-to-cart-btn">
           <Modal

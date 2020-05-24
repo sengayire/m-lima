@@ -64,18 +64,24 @@ class Home extends Component {
     const { profile, loading, isAuth, products } = this.state;
     return (
       <LazyLoad>
-        <Container
-          header={<Header profile={profile} isAuth={isAuth} />}
-          content={
-            <Contents
-              isAuth={isAuth}
-              profile={profile}
-              contents={
-                <ItemsContainer items={<ItemCard loading={loading} products={products} />} />
-              }
-            />
-          }
-        />
+        {(products && (
+          <Container
+            header={<Header profile={profile} isAuth={isAuth} />}
+            content={
+              <Contents
+                isAuth={isAuth}
+                profile={profile}
+                contents={
+                  <ItemsContainer items={<ItemCard loading={loading} products={products} />} />
+                }
+              />
+            }
+          />
+        )) || (
+          <Dimmer>
+            <Loader />
+          </Dimmer>
+        )}
       </LazyLoad>
     );
   }

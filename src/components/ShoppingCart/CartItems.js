@@ -6,29 +6,42 @@ import { connect } from 'react-redux';
 import { ItemQuantity, Modal } from '../commons';
 import ManageModals from '../ManageModels';
 import LOGO from '../../assets/images/logo.png';
-import { deleteOrder } from '../../redux/actions';
+import { deleteOrder, buyItem } from '../../redux/actions';
 
 const PLACEHOLDER_IMAGE = 'https://react.semantic-ui.com/images/wireframe/image.png';
 
 class CartItems extends Component {
   state = {
     items: { getTotalItems: 0, orderDetails: [] },
+    profile: {},
   };
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     const { items } = nextProps;
 
-    return items && this.setState({ items });
+    return (items && this.setState({ items })) || '';
   }
 
   handleClick = (e, action, id) => {
     const { name } = e.target;
-    console.log('name', e.target);
-
     if (action === 'delete') {
       const { deleteOrder } = this.props;
       deleteOrder(id);
     }
+    if (action === 'buy') {
+      const {
+        buyItem,
+        items: { orderDetails },
+        profile,
+      } = this.props;
+      const item = orderDetails.find(({ orderInfo }) => orderInfo === id);
+      const form = {
+        ...item,
+        userId: profile.id,
+      };
+      buyItem(form);
+    }
+
     this.setState({
       eventName: name,
       clicked: true,
@@ -41,7 +54,6 @@ class CartItems extends Component {
       eventName,
       items: { getTotalItems, orderDetails },
     } = this.state;
-
     return (
       <div className="cart-items-container">
         <div className="cart-items">
@@ -126,7 +138,12 @@ class CartItems extends Component {
                           size={clicked ? 'tiny' : 'mini'}
                           trigger={
                             <center>
-                              <Button content="Buy this item" primary size="mini" />
+                              <Button
+                                onClick={(e) => this.handleClick(e, 'buy', item.orderInfo)}
+                                content="Buy this item"
+                                primary
+                                size="mini"
+                              />
                             </center>
                           }
                         />
@@ -168,7 +185,13 @@ class CartItems extends Component {
                     size={clicked ? 'tiny' : 'mini'}
                     trigger={
                       <center>
-                        <Button primary content="Buy(1)" size="mini" />
+                        <Button
+                          id="buyItem"
+                          onClick={this.handleClick}
+                          primary
+                          content="Buy(1)"
+                          size="mini"
+                        />
                       </center>
                     }
                   />
@@ -184,4 +207,4 @@ class CartItems extends Component {
 
 const mapStateToProps = ({ signin: { profile } }) => ({ profile });
 
-export default connect(mapStateToProps, { deleteOrder })(CartItems);
+export default connect(mapStateToProps, { deleteOrder, buyItem })(CartItems);

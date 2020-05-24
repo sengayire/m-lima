@@ -53,13 +53,13 @@ class Orders extends Component {
       case 'all orders':
         return <AllOrders items={items} />;
       case 'awaiting shipment':
-        return <AwaitingShipping items={items} />;
+        return <AwaitingShipping items={items} status="PAID" />;
       case 'awaiting delivery':
-        return <AwaitingDelivery items={items} />;
+        return <AwaitingDelivery items={items} status="SHIPPED" />;
       case 'awaiting payment':
-        return <AwaitingPayment items={items} />;
+        return <AwaitingPayment items={items} status="PLACED" />;
       case 'delivery':
-        return <Delivery items={items} />;
+        return <Delivery items={items} status="DELIVERED" />;
       default:
         return <AllOrders loading={loading} handleClick={this.handleClick} items={items} />;
     }

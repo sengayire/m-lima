@@ -1,22 +1,22 @@
-.side-bar-container{
-    background: #079994;
-    height: 100%;
-    .side-bar-menu{
-        margin-top: 30%;
-        font-size: small;
-        .pointing.menu{
-            width: 100%;
-            color: white;
-            .item{
-                color: white !important;
-                font-size: medium;
-                padding-left: 20% !important;
-            }
-            .item.active{
-                border-right: 1px solid #eee639 !important;
-                background: rgba(255, 255, 255, 0.205) !important;
-                font-size: big;
-            }
-        }
-    }
+.side-bar-container {
+	background: #079994;
+	height: 100%;
+	.side-bar-menu {
+		margin-top: 30%;
+		font-size: small;
+		.pointing.menu {
+			width: 100%;
+			color: white;
+			.item {
+				color: white !important;
+				font-size: medium;
+				padding-left: 20% !important;
+			}
+			.item.active {
+				border-right: 2px solid #eee639 !important;
+				background: rgba(255, 255, 255, 0.205) !important;
+				font-size: big;
+			}
+		}
+	}
 }

@@ -4,9 +4,11 @@ import { DeleteSweep, KeyboardArrowDown } from '@material-ui/icons';
 
 const PLACEHOLDER_IMAGE = 'https://react.semantic-ui.com/images/wireframe/image.png';
 
-const OrderedItemCard = ({ items }) => {
+const OrderedItemCard = ({ items, itemStatus }) => {
   const orders = items && items.orderDetails;
   const status = items && items.status;
+  console.log('item status', itemStatus);
+
   return (
     <div className="all-orders-container">
       <div className="orders-items-description">
@@ -19,8 +21,8 @@ const OrderedItemCard = ({ items }) => {
           <span>Price</span>
         </div>
 
-        {orders &&
-          status === 'SHOPPING' &&
+        {(orders &&
+          status === itemStatus &&
           orders.map((order) => {
             return (
               <div className="order-item-info">
@@ -70,7 +72,11 @@ const OrderedItemCard = ({ items }) => {
                 </div>
               </div>
             );
-          })}
+          })) || (
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <h1> No record found</h1>
+          </div>
+        )}
       </div>
     </div>
   );

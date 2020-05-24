@@ -17,6 +17,8 @@ import shoppingCartItems from './shoppingCartItems';
 import getAllOrders from './getAllOrders';
 import getSellerOrders from './getSellerOrders';
 import deleteOrder from './deleteOrder';
+import buyItem from './buyItem';
+import createAgency from './createAgency';
 
 export {
   saveBuyer,
@@ -38,4 +40,6 @@ export {
   getAllOrders,
   getSellerOrders,
   deleteOrder,
+  buyItem,
+  createAgency,
 };

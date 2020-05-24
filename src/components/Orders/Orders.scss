@@ -18,9 +18,10 @@
 		}
 	}
 	.orders-items-description {
-		height: 93%;
+		height: 80%;
 		margin-top: 40px;
 		width: 100%;
+		overflow-y: scroll;
 		.order-items-title {
 			display: flex;
 			justify-content: space-between;
@@ -38,7 +39,7 @@
 			flex-direction: column;
 			padding: 0 10px 0 20px;
 			border-radius: 2px;
-			height: 30%;
+			height: 25%;
 			margin-top: 5px;
 			width: 100%;
 			.order-info-body {
@@ -63,13 +64,16 @@
 					.delivery-return {
 						display: flex;
 						justify-content: space-between;
-						margin-left: 30%;
+						margin-left: 40%;
 						height: 100%;
 						align-items: flex-end;
+
 						.order-price {
 							display: flex;
 							justify-content: space-evenly;
-							width: 35%;
+							align-items: center;
+							margin-right: 10%;
+							width: 100%;
 							button {
 								background: transparent;
 							}

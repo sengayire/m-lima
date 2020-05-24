@@ -8,6 +8,7 @@ import * as locationAddresses from './locationAddresses';
 import * as addToCartActionsTypes from './addToCartActionsTypes';
 import * as getShoppingCartItems from './getShoppingCartItems';
 import * as ordersActionsTypes from './ordersActionsTypes';
+import * as agenciesActionsTypes from './agenciesActionsTypes';
 
 export {
   apiActionsTypes,
@@ -20,4 +21,5 @@ export {
   addToCartActionsTypes,
   getShoppingCartItems,
   ordersActionsTypes,
+  agenciesActionsTypes,
 };

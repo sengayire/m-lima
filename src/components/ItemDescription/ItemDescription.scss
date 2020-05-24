@@ -42,10 +42,12 @@
 
 		.item-types-images {
 			display: flex;
-
 			span {
 				margin-right: 20px;
-				width: 50px;
+				width: 80px;
+			}
+			span:active {
+				border: #f39c12 solid 2px;
 			}
 		}
 		.item-quantity {

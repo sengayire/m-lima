@@ -1,7 +1,7 @@
 import { ordersActionsTypes } from '../actionsTypes';
 import { apiAction } from '../../helpers';
 
-export default (id) => (dispatch) =>
+export default () => (dispatch) =>
   dispatch(
     apiAction({
       method: 'get',

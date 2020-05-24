@@ -1,11 +1,11 @@
 import React from 'react';
 import OrderedItemCard from './OrderedItemCard';
 
-const AwaitingShipping = ({ items }) => {
+const AwaitingShipping = ({ items, status }) => {
   return (
     <div>
       <h1>Awaiting shipping orders</h1>
-      <OrderedItemCard items={items} />
+      <OrderedItemCard itemStatus={status} items={items} />
     </div>
   );
 };

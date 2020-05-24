@@ -3,9 +3,7 @@ import OrderedItemCard from './OrderedItemCard';
 
 const Delivery = ({ items }) => (
   <div>
-    <div>
-      <h1>Delivered orders</h1>
-    </div>
+    <h1>Delivered orders</h1>
     <OrderedItemCard items={items} />
   </div>
 );
