@@ -3,11 +3,11 @@
 	height: 100%;
 	width: 100%;
 	margin-top: 5px;
-	background: red;
 	.board-content {
 		display: flex;
+		justify-content: center;
 		height: 100%;
-		width: 85%;
+		width: 90%;
 		background: white;
 		div {
 			width: 90%;

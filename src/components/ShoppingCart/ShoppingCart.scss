@@ -1,19 +1,17 @@
 .cart-items-container {
 	background: white;
 	height: 100%;
-
 	.cart-items {
+		height: 80%;
 		display: flex;
 		justify-content: space-between;
-		height: 500px;
-
 		.all-carts-orders {
 			display: flex;
 			flex-direction: column;
-			height: 90%;
+			height: 100%;
 			width: 75%;
 			margin: 20px 20px 0 20px;
-
+			overflow-y: scroll;
 			.select-all-carts {
 				background: #f2f3f4;
 				height: 25%;
@@ -29,13 +27,12 @@
 
 			.all-orders-list {
 				background: #f2f3f4;
-				height: auto;
 				border-radius: 15px;
 				display: flex;
 				margin: 20px 0 0 0;
 				justify-content: flex-start;
 				align-items: center;
-				height: 60%;
+				height: 300px;
 				.select-item {
 					margin: 0 20px 0 5px;
 				}
@@ -94,7 +91,7 @@
 		}
 
 		.order-summary {
-			height: 50%;
+			height: 30%;
 			width: 25%;
 			background: #f2f3f4;
 			margin: 20px 20px 0 0;

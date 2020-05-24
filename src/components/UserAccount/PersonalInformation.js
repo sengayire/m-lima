@@ -18,14 +18,6 @@ class PersonalInformation extends Component {
     authority: '',
   };
 
-  handleChange = (e) => {
-    const { form, errors } = this.state;
-    this.setState({
-      form: { ...form, [e.target.name]: e.target.value },
-      errors: { ...errors, [e.target.name]: null },
-    });
-  };
-
   componentDidMount() {
     const {
       profile: {
@@ -36,6 +28,14 @@ class PersonalInformation extends Component {
       authority,
     });
   }
+
+  handleChange = (e) => {
+    const { form, errors } = this.state;
+    this.setState({
+      form: { ...form, [e.target.name]: e.target.value },
+      errors: { ...errors, [e.target.name]: null },
+    });
+  };
 
   handleSubmit = () => {
     const { authority } = this.state;

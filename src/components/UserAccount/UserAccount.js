@@ -7,11 +7,13 @@ import Dashboard from './Dashboard';
 import PersonalInformation from './PersonalInformation';
 import ShippingAddress from './ShippingAddress';
 import SecurityInfo from './SecurityInfo';
+import { getAllOrders } from '../../redux/actions';
 
 class UserAccount extends Component {
   state = {
     profile: {},
     isAuth: false,
+    items: {},
   };
 
   ordersMenuItems = [
@@ -22,17 +24,26 @@ class UserAccount extends Component {
   ];
 
   componentDidMount() {
-    const { profile, isAuth } = this.props;
+    const { profile, isAuth, getAllOrders } = this.props;
+    getAllOrders();
     this.setState({
       profile,
       isAuth,
     });
   }
 
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    const { items } = nextProps;
+    this.setState({ items });
+  }
+
   manageMenu = (activeItem) => {
+    const { items, profile } = this.state;
+    console.log('profile', profile);
+
     switch (activeItem) {
       case 'dashboard':
-        return <Dashboard name="ShoppingCart" />;
+        return <Dashboard profile={profile} name="ShoppingCart" items={items[0]} />;
       case 'personal information':
         return <PersonalInformation />;
       case 'security information':
@@ -40,7 +51,7 @@ class UserAccount extends Component {
       case 'my shipping address':
         return <ShippingAddress />;
       default:
-        return <Dashboard />;
+        return <Dashboard items={items[0]} profile={profile} />;
     }
   };
 
@@ -57,9 +68,10 @@ class UserAccount extends Component {
     );
   }
 }
-const mapStateToprops = ({ signin: { profile, isAuth } }) => ({
+const mapStateToprops = ({ signin: { profile, isAuth }, orders: { items } }) => ({
   profile,
   isAuth,
+  items,
 });
 
-export default connect(mapStateToprops, null)(UserAccount);
+export default connect(mapStateToprops, { getAllOrders })(UserAccount);
